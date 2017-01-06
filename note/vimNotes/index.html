@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="shortcut icon" href="../source/img/favicon.ico"/>
+    <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="/js/jquery-1.7.1.min.js"></script>
+    <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+    <title>top'blog</title>
+</head>
+<body>
+<div id="info">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+<div id="photo">
+    <div id="photo-span">
+        <img src="/img/photo.png">
+        <div><a href="/tags/index">top&#39;blog</a></div>
+    </div>
+</div>
+
+<div id="guide">
+    <div class="guide-button" id="guide-1" _href="/tags/project">project</div>
+    <div class="guide-button" id="guide-2" _href="/tags/note">note</div>
+    <div class="clear"></div>
+    <div class="guide-button" id="guide-3" _href="/tags/life">life</div>
+    <div class="guide-button" id="guide-4" _href="/categories/read">read</div>
+</div>
+
+<div id="second"></div>
+
+<div id="link">
+    <div><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;wangwenxiang1993@gmail.com</div><br>
+    <div><a href="https://github.com/wangwenxiang1993" target="_blank"><i class="fa fa-github fa-lg" aria-hidden="true"></i>&nbsp;github</a></div><br>
+    <div><i class="fa fa-weixin" aria-hidden="true"></i>&nbsp;187-0111-3061</div><br>
+</div>
+
+</div>
+<div id="wrap">
+    <section id="content">
+    <article class="post">
+        <div class="date">
+    <span class="day">14</span>
+    <span class="month">Oct</span>
+    <span class="year">2016</span>
+</div>
+        <header>
+            <h2><a href="/note/vimNotes/" title="vim快捷键笔记">vim快捷键笔记</a></h2>
+        </header>
+        <div class="con"><h2 id="一-移动光标"><a href="#一-移动光标" class="headerlink" title="一. 移动光标"></a>一. 移动光标</h2><ol>
+<li>左移h. 右移l. 下移j. 上移k</li>
+<li>向下翻页ctrl + f，向上翻页ctrl + b    </li>
+<li>向下翻半页ctrl + d，向上翻半页ctrl + u</li>
+<li>移动到行尾$，移动到行首0（数字），移动到行首第一个字符处^</li>
+<li>移动光标到下一个句子 ），移动光标到上一个句子（</li>
+<li>移动到段首{，移动到段尾}</li>
+<li>移动到下一个词w，移动到上一个词b</li>
+<li>移动到文档开始gg，移动到文档结束G</li>
+<li>移动到匹配的{}.().[]处%</li>
+<li>跳到第n行 ngg 或 nG 或 :n</li>
+<li>移动光标到屏幕顶端H，移动到屏幕中间M，移动到底部L</li>
+<li>读取当前字符，并移动到本屏幕内下一次出现的地方</li>
+<li>读取当前字符，并移动到本屏幕内上一次出现的地方</li>
+</ol>
+<a id="more"></a>
+<h2 id="二-查找替换"><a href="#二-查找替换" class="headerlink" title="二. 查找替换"></a>二. 查找替换</h2><ol>
+<li>光标向后查找关键字 #或者g#</li>
+<li>光标向前查找关键字 <em>或者g</em></li>
+<li>当前行查找字符 fx, Fx, tx, Tx</li>
+<li>基本替换 :s/s1/s2 （将下一个s1替换为s2）</li>
+<li>全部替换 :%s/s1/s2</li>
+<li>只替换当前行 :s/s1/s2/g</li>
+<li>替换某些行 :n1,n2 s/s1/s2/g</li>
+<li>搜索模式为 /string，搜索下一处为n，搜索上一处为N</li>
+<li>制定书签 mx, 但是看不到书签标记，而且只能用小写字母</li>
+<li>移动到某标签处 `x，1旁边的键</li>
+<li>移动到上次编辑文件的位置 `.</li>
+</ol>
+<p>#PS：.代表一个任意字符 *代表一个或多个字符的重复</p>
+<h2 id="三-编辑操作"><a href="#三-编辑操作" class="headerlink" title="三. 编辑操作"></a>三. 编辑操作</h2><ol>
+<li>光标后插入a, 行尾插入A</li>
+<li>后插一行插入o，前插一行插入O</li>
+<li>删除字符插入s， 删除正行插入S</li>
+<li>光标前插入i，行首插入I</li>
+<li>删除一行dd，删除后进入插入模式cc或者S</li>
+<li>删除一个单词dw，删除一个单词进入插入模式cw</li>
+<li>删除一个字符x或者dl，删除一个字符进入插入模式s或者cl</li>
+<li>粘贴p，交换两个字符xp，交换两行ddp</li>
+<li>复制y，复制一行yy</li>
+<li>撤销u，重做ctrl + r，重复.</li>
+<li>智能提示 ctrl + n 或者 ctrl + p</li>
+<li>删除motion跨过的字符，删除并进入插入模式 c{motion}</li>
+<li>删除到下一个字符跨过的字符，删除并进入插入模式，不包括x字符 ctx</li>
+<li>删除当前字符到下一个字符处的所有字符，并进入插入模式，包括x字符，cfx</li>
+<li>删除motion跨过的字符，删除但不进入插入模式 d{motion}</li>
+<li>删除motion跨过的字符，删除但不进入插入模式，不包括x字符 dtx</li>
+<li>删除当前字符到下一个字符处的所有字符，包括x字符 dfx</li>
+<li>如果只是复制的情况时，将12-17条中的c或d改为y</li>
+<li>删除到行尾可以使用D或C</li>
+<li>拷贝当前行 yy或者Y</li>
+<li>删除当前字符 x</li>
+<li>粘贴 p</li>
+<li>可以使用多重剪切板，查看状态使用:reg，使用剪切板使用”，例如复制到w寄存器，”wyy，或者使用可视模式v”wy</li>
+<li>重复执行上一个作用使用.</li>
+<li>使用数字可以跨过n个区域，如y3x，会拷贝光标到第三个x之间的区域，3j向下移动3行</li>
+<li>在编写代码的时候可以使用]p粘贴，这样可以自动进行代码缩进</li>
+<li>>&gt; 缩进所有选择的代码</li>
+<li>&lt;&lt; 反缩进所有选择的代码</li>
+<li>gd 移动到光标所处的函数或变量的定义处</li>
+<li>K 在man里搜索光标所在的词</li>
+<li>合并两行 J</li>
+<li>若不想保存文件，而重新打开 :e!</li>
+<li>若想打开新文件 :e filename，然后使用ctrl + ^进行文件切换</li>
+</ol>
+<h2 id="四-窗口操作"><a href="#四-窗口操作" class="headerlink" title="四. 窗口操作"></a>四. 窗口操作</h2><ol>
+<li>分隔一个窗口:split或者:vsplit</li>
+<li>创建一个窗口:new或者:vnew</li>
+<li>在新窗口打开文件:sf {filename}</li>
+<li>关闭当前窗口:close</li>
+<li>仅保留当前窗口:only</li>
+<li>到左边窗口 ctrl + w, h</li>
+<li>到右边窗口 ctrl + w, l</li>
+<li>到上边窗口 ctrl + w, k</li>
+<li>到下边窗口 ctrl + w, j</li>
+<li>到顶部窗口 ctrl + w, t</li>
+<li>到底部窗口 ctrl + w, b</li>
+</ol>
+<h2 id="五-宏操作"><a href="#五-宏操作" class="headerlink" title="五. 宏操作"></a>五. 宏操作</h2><ol>
+<li>开始记录宏操作q[a-z]，按q结束，保存操作到寄存器[a-z]中</li>
+<li>@[a-z]执行寄存器[a-z]中的操作</li>
+<li>@@执行最近一次记录的宏操作</li>
+</ol>
+<h2 id="六-可视操作"><a href="#六-可视操作" class="headerlink" title="六. 可视操作"></a>六. 可视操作</h2><ol>
+<li>进入块可视模式 ctrl + v</li>
+<li>进入字符可视模式 v</li>
+<li>进入行可视模式 V</li>
+<li>删除选定的块 d</li>
+<li>删除选定的块然后进入插入模式 c</li>
+<li>在选中的块同是插入相同的字符 IESC</li>
+</ol>
+<h2 id="七-跳到声明"><a href="#七-跳到声明" class="headerlink" title="七. 跳到声明"></a>七. 跳到声明</h2><ol>
+<li>[[ 向前跳到顶格第一个{  </li>
+<li>[] 向前跳到顶格第一个}</li>
+<li>]] 向后跳到顶格的第一个{</li>
+<li>]] 向后跳到顶格的第一个}</li>
+<li>[{ 跳到本代码块的开头</li>
+<li>]} 跳到本代码块的结尾</li>
+</ol>
+<h2 id="八-挂起操作"><a href="#八-挂起操作" class="headerlink" title="八. 挂起操作"></a>八. 挂起操作</h2><ol>
+<li>挂起Vim ctrl + z 或者 :suspend</li>
+<li>查看任务 在shell中输入 jobs</li>
+<li>恢复任务 fg [job number]（将后台程序放到前台）或者 bg [job number]（将前台程序放到后台）</li>
+<li>执行shell命令 :!command</li>
+<li>开启shell命令 :shell，退出该shell exit</li>
+<li>保存vim状态 :mksession name.vim</li>
+<li>恢复vim状态 :source name.vim</li>
+<li>启动vim时恢复状态 vim -S name.vim</li>
+</ol>
+</div>
+        <div class="prev_and_next">
+            
+            <div><strong>上一篇： <a href="/note/zookeeper/" title="zookeeper原理">zookeeper原理</a></strong></div>
+            
+            
+            <div><strong>上一篇： <a href="/note/MarkdownGrammar/" title="Markdown语法">Markdown语法</a></strong></div>
+            
+        </div>
+    </article>
+</section>
+<div class="clear"></div>
+</div>
+<script type="text/javascript" src="/js/base.js"></script>
+</body>
+</html>

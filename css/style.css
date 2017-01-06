@@ -1,0 +1,526 @@
+::-webkit-scrollbar-track-piece {
+    background-color: #EEE;
+    -webkit-border-radius: 0;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #DDD;
+    -webkit-border-radius: 4px;
+    outline: 2px solid #EEE;
+    outline-offset: -2px;
+    border: 2px solid #EEE;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    height: 50px;
+    background-color: #2d7788;
+    -webkit-border-radius: 4px;
+}
+
+img {
+    border: 0;
+    margin:0 auto;
+    text-align: center;
+}
+
+::selection {
+    color: #fff;
+    background-color: #2d7788;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    color: #fff;
+    background-color: #2d7788;
+    text-shadow: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+body {
+    line-height: 180%;
+    font-size: 12px;
+    font-family: 'Microsoft Yahei', Verdana, Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #333;
+    margin: 0;
+    overflow-y: hidden;
+    min-width: 850px;
+}
+
+body, .hover {
+    background: #eeeeee;
+}
+
+div, form, ul, ol, li, dl, dt, dd {
+    border: 0;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+.hover {
+    position: absolute;
+    width: 80px;
+    display: block;
+    left: 45px;
+    top: 17px;
+}
+
+.clear {
+    clear: both;
+}
+
+blockquote code {
+    margin: 0;
+    border: 0;
+}
+
+a {
+    color: #2d7788;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#info {
+    position: relative;
+    float: left;
+    width: 19%;
+    height: 100vh;
+    min-width: 160px;
+    background-color: #42A8C0
+}
+
+#info #photo {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-color: #2d7788;
+    overflow: hidden;
+}
+
+#info #photo #photo-span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#info #photo #photo-span img {
+    margin: 14% 25% 16px 25%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#info #photo #photo-span div {
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    font-size: 240%;
+}
+
+#info #photo #photo-span div a {
+    color: #f5f5f5;
+}
+
+#info #photo #photo-span div:hover {
+    cursor: pointer;
+}
+
+#info #guide {
+    width: 100%;
+    height: 16%;
+    background: url("/img/guide.png") no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 20%;
+}
+
+#info #guide .guide-button {
+    text-align: center;
+    filter: alpha(opacity=60);
+    -moz-opacity: 0.6;
+    -khtml-opacity: 0.6;
+    color: #f5f5f5;
+    font-weight: 900;
+    font-size: 120%;
+}
+
+#info #guide .guide-button:after {
+    display:inline-block;
+    width:0;
+    height:100%;
+    vertical-align:middle;
+    content:"";
+}
+
+#info #guide .guide-button:hover {
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+}
+#info #guide #guide-1:hover {
+    background-color:rgba(0,0,0,0);
+}
+#info #guide #guide-2:hover {
+    background-color:rgba(0,0,0,0);
+}
+#info #guide #guide-3:hover {
+    background-color:rgba(0,0,0,0);
+}
+#info #guide #guide-4:hover {
+    background-color:rgba(0,0,0,0);
+}
+
+#info #guide #guide-1 {
+    background-color:rgba(246,53,14,0.6);
+    height: 50%;
+    overflow: hidden;
+    width: 50%;
+    float: left;
+}
+
+#info #guide #guide-2 {
+    background-color:rgba(124,187,0,0.6);
+    height: 50%;
+    overflow: hidden;
+    width: 50%;
+    float: right;
+}
+
+#info #guide #guide-3 {
+    background-color:rgba(0,161,241,0.6);
+    height: 50%;
+    overflow: hidden;
+    width: 50%;
+    float: left;
+}
+
+#info #guide #guide-4 {
+    background-color:rgba(255,187,0,0.6);
+    height: 50%;
+    overflow: hidden;
+    width: 50%;
+    float: right;
+}
+
+#info #link div {
+    margin: -5px 20px;
+    color: #f5f5f5;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#info #link div a {
+    color: #f5f5f5;
+}
+
+#info #link div:hover {
+    cursor: pointer;
+}
+
+#wrap {
+    float: left;
+    position: relative;
+    table-layout: fixed;
+    word-break: break-all;
+    margin: 0 auto;
+    width: 79%;
+    min-width: 640px;
+    min-height: 300px;
+    display: inline-block;
+    padding: 0 5px 0 5px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+#content {
+    float: left;
+    /*width:618px;*/
+    padding: 0 20px 0 20px;
+    margin-top: 25px;
+    min-width: 95%;
+}
+
+.post {
+    clear: both;
+    position: relative;
+}
+
+.date {
+    color: #333;
+    text-transform: uppercase;
+    font-family: Georgia, serif;
+    font-weight: normal;
+    text-shadow: 1px 1px 0 #ddd;
+    width: 80px;
+    height: 30px;
+    float: left;
+    margin: 4px 10px 0 0;
+    padding: 0 10px 0 0;
+    border-right: 1px solid #ddd;
+}
+
+.date .day {
+    font-size: 30px;
+    float: left;
+    line-height: 56px;
+    margin-top: -14px;
+    color: #2d7788;
+    font-weight: 800;
+}
+
+.post .date .month {
+    font-size: 12px;
+    position: relative;
+    top: -4px;
+    width: 35px;
+    float: right;
+}
+
+.date .year {
+    font-size: 12px;
+    position: relative;
+    top: -12px;
+    width: 35px;
+    float: right;
+}
+
+.post h2 a {
+    color: #2d7788;
+}
+
+.post h2 a:hover {
+    color: #555;
+}
+
+.post h1 {
+    padding: 0 0 12px 0;
+    color: #5D245F;
+    font-weight: 700;
+    margin-left: 0px;
+}
+
+.post h2 {
+    padding: 5px 0 10px 0;
+    color: #94003D;
+    font-weight: 700;
+    margin-left: 0px;
+}
+
+.post h3 {
+    padding: 4px 0 8px 0;
+    color: #2d7788;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.post h4 {
+    padding: 3px 0 6px 0;
+    color: #222;
+    font-weight: 900;
+    margin-left: 20px;
+}
+
+.post h5 {
+    font-weight: 100;
+    margin-left: 30px;
+    color: #666;
+}
+
+.post h6 {
+    text-align: center;
+    font-weight: 100;
+}
+
+.post .con ul {
+    margin: 5px 0;
+}
+
+.post .con li {
+    list-style-type: none;
+    padding: 0 0 4px 0;
+}
+
+.post .con ul li {
+    list-style: disc inside;
+}
+
+.post .con ol li {
+    list-style: decimal inside;
+    font-weight: 100;
+    margin-left: 30px;
+    color: #666;
+}
+
+.page .post .con ul li {
+    list-style: none;
+}
+
+.page .post .con ol li {
+    list-style: none;
+}
+
+.post .con {
+    font-family: 'Microsoft Yahei', Verdana, Arial, Helvetica, sans-serif;
+    color: #555;
+    padding: 18px 0 30px 0;
+}
+
+.post .con img {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    max-width: 600px;
+    padding: 5px;
+    border: solid 1px #ddd;
+    clear: both;
+    display: block;
+    margin:auto;
+}
+
+.post .con p {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    padding: 8px 0;
+    /*text-indent:2em;*/
+}
+
+.post .con div p {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    padding: 0;
+    text-indent: 0;
+}
+
+.post .con p a {
+    color: #2d7788;
+    text-decoration: none;
+}
+
+.post .con p.more a {
+    margin: 0;
+}
+
+.post .con p a:hover {
+    text-decoration: underline;
+}
+
+code {
+    /*margin: 0px 3px;
+    padding: 3px 6px;*/
+    margin: 0 0.5em;
+    padding: 0.1em 0.5em;
+    white-space: nowrap;
+    border: 1px solid #CCCCCC;
+    background-color: #E2E2E2;
+    border-radius: 3px;
+}
+
+.post .con pre code {
+    display: block;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    border: 1px solid #CCCCCC;
+    background: #E2E2E2;
+    font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+    /*overflow: auto;
+    max-height: 500px;*/
+    line-height: 18px;
+    white-space: pre-wrap;
+    word-wrap: break-word
+}
+
+#footer {
+    padding: 20px 20px 41px 20px;
+    display: block;
+}
+
+.foot {
+    border-top: 1px #E3E3E3 solid;
+}
+
+.foot #gotop {
+    float: right;
+}
+
+input#author, input#mail, input#url {
+    color: #333;
+    font-size: 12px;
+    padding: 4px 10px 4px 40px;
+    line-height: 12px;
+}
+
+.page {
+    padding-bottom: 30px !important;
+    padding-top: 20px !important;
+    width: 890px !important;
+}
+
+.prev_and_next {
+    font-size: 14px;
+}
+
+.prev_and_next a {
+    color: #2d7788;
+}
+
+.prev_and_next div {
+    line-height: 30px;
+}
+
+.prev_and_next div span {
+    font-weight: normal;
+    color: #666;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+#footer-page{
+    text-align: center;
+}
+
+#footer-page a, #footer-page span{
+    border:solid 1px #DEDEDE; margin-right:4px;
+    padding: 6px 10px;
+    font-weight: 900;
+}
+
+#footer-page .current{
+    padding: 6px 10px;
+}
+
+#footer-page .space{
+    padding: 6px 8px;
+}
+
+
+#footer-page a:hover{
+    background-color: #2d7788;
+    color: #eeeeee;;
+}
