@@ -4,12 +4,6 @@ $(document).ready(function ($) {
         return false
     });
 });
-NProgress.configure({showSpinner: false, minimum: 0.1});
-NProgress.start();
-$(window).load(function () {
-    NProgress.done(true);
-    $('.fade').removeClass('out');
-});
 
 $(".guide-button").click(function () {
     location.href = $(this).attr("_href");
