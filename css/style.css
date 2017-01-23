@@ -110,7 +110,6 @@ a {
     height: 100vh;
     min-width: 160px;
     background-color: #42A8C0;
-    text-align: center;
 }
 
 #info #photo {
@@ -284,7 +283,6 @@ a {
     padding: 0 5px 0 5px;
     overflow-y: auto;
     height: 100vh;
-    text-align: center;
 }
 
 #content {
@@ -379,6 +377,7 @@ a {
     font-weight: 100;
     margin-left: 30px;
     color: #666;
+    padding: 3px 0 6px 0;
 }
 
 .post h6 {
