@@ -285,6 +285,10 @@ a {
     height: 100vh;
 }
 
+#wrap #contents{
+  min-height: 90%;
+}
+
 #content {
     float: left;
     /*width:618px;*/
@@ -424,11 +428,12 @@ a {
     -webkit-border-radius: 3px;
     border-radius: 3px;
     max-width: 600px;
-    padding: 5px;
+    padding: 3px;
     border: solid 1px #ddd;
     clear: both;
     display: block;
     margin:auto;
+    max-height: 250px;
 }
 
 .post .con p {
@@ -484,7 +489,7 @@ code {
 }
 
 #footer {
-    padding: 20px 20px 41px 20px;
+    padding: 20px 20px 10px 20px;
     display: block;
 }
 
