@@ -37,14 +37,6 @@
 
 <section id="content">
     <article class="post">
-        <div class="date">
-    <span class="day">01</span>
-    <span class="month">Dec</span>
-    <span class="year">2016</span>
-</div>
-        <header>
-            <h2><a href="/note/zookeeper/" title="zookeeper原理">zookeeper原理</a></h2>
-        </header>
         <div class="con"><h5 id="ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，它包含一个简单的原语集，分布式应用程序可以基于它实现同步服务，配置维护和命名服务等。Zookeeper是hadoop的一个子项目，其发展历程无需赘述。在分布式应用中，由于工程师不能很好地使用锁机制，以及基于消息的协调机制不适合在某些应用中使用，因此需要有一种可靠的、可扩展的、分布式的、可配置的协调机制来统一系统的状态。Zookeeper的目的就在于此。本文简单分析zookeeper的工作原理，对于如何使用zookeeper不是本文讨论的重点。"><a href="#ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，它包含一个简单的原语集，分布式应用程序可以基于它实现同步服务，配置维护和命名服务等。Zookeeper是hadoop的一个子项目，其发展历程无需赘述。在分布式应用中，由于工程师不能很好地使用锁机制，以及基于消息的协调机制不适合在某些应用中使用，因此需要有一种可靠的、可扩展的、分布式的、可配置的协调机制来统一系统的状态。Zookeeper的目的就在于此。本文简单分析zookeeper的工作原理，对于如何使用zookeeper不是本文讨论的重点。" class="headerlink" title="ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，它包含一个简单的原语集，分布式应用程序可以基于它实现同步服务，配置维护和命名服务等。Zookeeper是hadoop的一个子项目，其发展历程无需赘述。在分布式应用中，由于工程师不能很好地使用锁机制，以及基于消息的协调机制不适合在某些应用中使用，因此需要有一种可靠的、可扩展的、分布式的、可配置的协调机制来统一系统的状态。Zookeeper的目的就在于此。本文简单分析zookeeper的工作原理，对于如何使用zookeeper不是本文讨论的重点。"></a>ZooKeeper是一个分布式的，开放源码的分布式应用程序协调服务，它包含一个简单的原语集，分布式应用程序可以基于它实现同步服务，配置维护和命名服务等。Zookeeper是hadoop的一个子项目，其发展历程无需赘述。在分布式应用中，由于工程师不能很好地使用锁机制，以及基于消息的协调机制不适合在某些应用中使用，因此需要有一种可靠的、可扩展的、分布式的、可配置的协调机制来统一系统的状态。Zookeeper的目的就在于此。本文简单分析zookeeper的工作原理，对于如何使用zookeeper不是本文讨论的重点。</h5><a id="more"></a>
 <h2 id="1-Zookeeper的基本概念"><a href="#1-Zookeeper的基本概念" class="headerlink" title="1 Zookeeper的基本概念"></a>1 Zookeeper的基本概念</h2><h3 id="1-1-角色"><a href="#1-1-角色" class="headerlink" title="1.1 角色"></a>1.1 角色</h3><h5 id="Zookeeper中的角色主要有以下三类，如下表所示："><a href="#Zookeeper中的角色主要有以下三类，如下表所示：" class="headerlink" title="Zookeeper中的角色主要有以下三类，如下表所示："></a>Zookeeper中的角色主要有以下三类，如下表所示：</h5><p><img src="../../img/zookeeper/role.jpg" alt="zookeeper角色"></p>
 <h5 id="系统模型如图所示："><a href="#系统模型如图所示：" class="headerlink" title="系统模型如图所示："></a>系统模型如图所示：</h5><p><img src="../../img/zookeeper/zookeeperModel.jpg" alt="zookeeper系统模型"></p>
