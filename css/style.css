@@ -283,10 +283,11 @@ a {
     padding: 0 5px 0 5px;
     overflow-y: auto;
     height: 100vh;
+    text-align: center;
 }
 
-#wrap #contents{
-  min-height: 90%;
+#wrap #contents, #wrap #books, #wrap #content{
+  min-height: 88%;
 }
 
 #content {
@@ -300,6 +301,10 @@ a {
 .post {
     clear: both;
     position: relative;
+}
+
+.post header{
+  text-align: left;
 }
 
 .date {
@@ -353,33 +358,28 @@ a {
     padding: 0 0 12px 0;
     color: #5D245F;
     font-weight: 700;
-    margin-left: 0px;
 }
 
 .post h2 {
     padding: 5px 0 10px 0;
     color: #94003D;
     font-weight: 700;
-    margin-left: 0px;
 }
 
 .post h3 {
     padding: 4px 0 8px 0;
     color: #2d7788;
     font-weight: 600;
-    margin-left: 10px;
 }
 
 .post h4 {
     padding: 3px 0 6px 0;
     color: #222;
     font-weight: 900;
-    margin-left: 20px;
 }
 
 .post h5 {
     font-weight: 100;
-    margin-left: 30px;
     color: #666;
     padding: 3px 0 6px 0;
 }
