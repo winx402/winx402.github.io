@@ -1,28 +1,73 @@
-::-webkit-scrollbar-track-piece {
-    background-color: #EEE;
-    -webkit-border-radius: 0;
+/*animation starts*/
+.animated {
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
 }
 
-::-webkit-scrollbar {
-    width: 16px;
-    height: 8px;
+.animated.hinge {
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
 }
 
-::-webkit-scrollbar-thumb {
-    height: 50px;
-    background-color: #DDD;
-    -webkit-border-radius: 4px;
-    outline: 2px solid #EEE;
-    outline-offset: -2px;
-    border: 2px solid #EEE;
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@-moz-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+}
+@-o-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  -moz-animation-name: fadeInDown;
+  -o-animation-name: fadeInDown;
+  animation-name: fadeInDown;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    height: 50px;
-    background-color: #2d7788;
-    -webkit-border-radius: 4px;
-}
-
+/*animation ends*/
 img {
     border: 0;
     margin:0 auto;
@@ -57,8 +102,8 @@ body {
     text-align: center;
     color: #333;
     margin: 0;
-    overflow-y: hidden;
-    min-width: 850px;
+    overflow-y: auto;
+    min-width: 360px;
 }
 
 body, .hover {
@@ -103,72 +148,40 @@ a {
     cursor: pointer;
 }
 
-#info {
-    position: relative;
-    float: left;
-    width: 19%;
-    height: 100vh;
-    min-width: 160px;
-    background-color: #42A8C0;
+#info-min {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 60px;
 }
 
-#info #photo {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%;
-    background-color: #2d7788;
-    overflow: hidden;
+#info-min #guide{
+  padding-top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #eee;
+  position: fixed;
+  top: 0;
+  height: 60px;
+  padding-left: 7%;
+  padding-right: 7%;
+  border-bottom: 1px solid #ddd;
 }
 
-#info #photo #photo-span {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+#info-min #guide .guide-button{
+  float: left;
+  margin: 0 26px 0 0;
+  height: 100%;
+  font-size: 14px;
+  color: #555;
 }
 
-#info #photo #photo-span img {
-    margin: 14% 25% 16px 25%;
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    overflow: hidden;
+#info-min #guide .guide-button:hover{
+  cursor: pointer;
+  color: #42A8C0;
 }
 
-#info #photo #photo-span div {
-    font-weight: 900;
-    width: 100%;
-    text-align: center;
-    font-size: 240%;
-}
-
-#info #photo #photo-span div a {
-    color: #f5f5f5;
-}
-
-#info #photo #photo-span div:hover {
-    cursor: pointer;
-}
-
-#info #guide {
-    width: 100%;
-    height: 16%;
-    background: url("/img/guide.png") no-repeat;
-    background-size: 100% 100%;
-    margin-bottom: 20%;
-}
-
-#info #guide .guide-button {
-    text-align: center;
-    filter: alpha(opacity=60);
-    -moz-opacity: 0.6;
-    -khtml-opacity: 0.6;
-    color: #f5f5f5;
-    font-weight: 900;
-    font-size: 120%;
-}
-
-#info #guide .guide-button:after {
+#info-min #guide .guide-button:after {
     display:inline-block;
     width:0;
     height:100%;
@@ -176,131 +189,83 @@ a {
     content:"";
 }
 
-#info #guide .guide-button:hover {
-    cursor: pointer;
-    filter: alpha(opacity=0);
-    -moz-opacity: 0;
-    -khtml-opacity: 0;
-}
-#info #guide #guide-1:hover {
-    background-color:rgba(0,0,0,0);
-}
-#info #guide #guide-2:hover {
-    background-color:rgba(0,0,0,0);
-}
-#info #guide #guide-3:hover {
-    background-color:rgba(0,0,0,0);
-}
-#info #guide #guide-4:hover {
-    background-color:rgba(0,0,0,0);
-}
-
-#info #guide #guide-1 {
-    background-color:rgba(246,53,14,0.6);
-    height: 50%;
-    overflow: hidden;
-    width: 50%;
-    float: left;
-}
-
-#info #guide #guide-2 {
-    background-color:rgba(124,187,0,0.6);
-    height: 50%;
-    overflow: hidden;
-    width: 50%;
-    float: right;
-}
-
-#info #guide #guide-3 {
-    background-color:rgba(0,161,241,0.6);
-    height: 50%;
-    overflow: hidden;
-    width: 50%;
-    float: left;
-}
-
-#info #guide #guide-4 {
-    background-color:rgba(255,187,0,0.6);
-    height: 50%;
-    overflow: hidden;
-    width: 50%;
-    float: right;
-}
-
-#info #info-bottom{
-  position:fixed;
-  bottom:0px;
-  width: 19%;
-  min-width: 160px;
-  text-align: center;
-    padding-top: 15px;
-    padding-bottom: 5px;
-}
-
-#info #link {
-    list-style-type: none;
-    display: inline-block;
-}
-
-#info #link li{
-    font-size:16px;
-    float: left;
-    margin-right: 30px
-}
-
-#info #link #info-mail{
-    color: #D9D9D9;
-}
-
-#info #link #info-github a{
-    color: #333;
-}
-
-#info #link #info-wechat{
-    color: #78D93B;
-    margin-right: 0;
-}
-
-#info #link li a {
-    color: #f5f5f5;
-}
-
-#info #link li i:hover {
-    cursor: pointer;
-    color: #f5f5f5;
+#info-min #guide img{
+  top: 0;
+  position: fixed;
+  right: 7%;
+  border-radius: 50%;
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
 }
 
 #wrap {
-    float: left;
     position: relative;
     table-layout: fixed;
     word-break: break-all;
     margin: 0 auto;
-    width: 79%;
-    min-width: 640px;
     min-height: 300px;
-    display: inline-block;
     padding: 0 5px 0 5px;
     overflow-y: auto;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
+    float: none;
+    width: 100%;
+    margin-left: 0;
+    display: inline-block;
+}
+
+#wrap #big-title{
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  background: no-repeat center center;
+  background-attachment: scroll;
+  color: #ccc;
+}
+
+#wrap #big-title #title-name{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  max-width: 70%;
+  display: inline-block;
+  line-height: 36px;
+  margin-top: 100px;
+  float: none;
+}
+
+#wrap #big-title #something{
+  text-align: center;
+  font-size: 14px;
+  padding-top: 30px;
 }
 
 #wrap #contents, #wrap #books, #wrap #content{
   min-height: 88%;
+  width: 90%;
+  display: inline-block;
+}
+
+#wrap #contents #content{
+  width: 95%;
+}
+
+#wrap #books, #wrap #content{
+  width: 80%;
 }
 
 #content {
-    float: left;
     /*width:618px;*/
     padding: 0 20px 0 20px;
     margin-top: 25px;
-    min-width: 95%;
 }
 
 .post {
     clear: both;
     position: relative;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
 }
 
 .post header{
@@ -420,7 +385,7 @@ a {
 .post .con {
     font-family: 'Microsoft Yahei', Verdana, Arial, Helvetica, sans-serif;
     color: #555;
-    padding: 18px 0 30px 0;
+    padding: 18px 0 10px 0;
 }
 
 .post .con img {
