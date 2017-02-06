@@ -205,7 +205,7 @@ a {
     word-break: break-all;
     margin: 0 auto;
     min-height: 300px;
-    padding: 0 5px 0 5px;
+    padding: 0; 
     overflow-y: auto;
     min-height: 100vh;
     text-align: center;
