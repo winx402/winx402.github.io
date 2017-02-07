@@ -98,12 +98,11 @@ img {
 body {
     line-height: 180%;
     font-size: 12px;
-    font-family: 'Microsoft Yahei', Verdana, Arial, Helvetica, sans-serif;
+    font-family: '-apple-system,  "PingFang SC","Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif';
     text-align: center;
     color: #333;
     margin: 0;
     overflow-y: auto;
-    min-width: 360px;
 }
 
 body, .hover {
@@ -123,14 +122,6 @@ h1, h2, h3, h4, h5, h6 {
 
 li {
     list-style-type: none;
-}
-
-.hover {
-    position: absolute;
-    width: 80px;
-    display: block;
-    left: 45px;
-    top: 17px;
 }
 
 .clear {
@@ -161,7 +152,7 @@ a {
   width: 100%;
   background-color: #eee;
   position: fixed;
-  top: 0;
+  top: 0px;
   height: 60px;
   padding-left: 7%;
   padding-right: 7%;
@@ -222,6 +213,7 @@ a {
 #wrap #big-title{
   width: 100%;
   height: 350px;
+  display: table;
   text-align: center;
   background: no-repeat center center;
   background-attachment: scroll;
@@ -246,22 +238,24 @@ a {
 }
 
 #wrap #contents, #wrap #books, #wrap #content{
-  min-height: 88%;
   width: 90%;
   display: inline-block;
+  text-align: center;
+}
+
+@media screen and (max-width: 980px){
 }
 
 #wrap #contents #content{
-  width: 95%;
+  width: 100%;
 }
 
-#wrap #books, #wrap #content{
+#wrap #books{
   width: 80%;
 }
 
 #content {
     /*width:618px;*/
-    padding: 0 20px 0 20px;
     margin-top: 25px;
 }
 
@@ -477,12 +471,6 @@ input#author, input#mail, input#url {
     line-height: 12px;
 }
 
-.page {
-    padding-bottom: 30px !important;
-    padding-top: 20px !important;
-    width: 890px !important;
-}
-
 .prev_and_next {
     font-size: 14px;
 }
@@ -529,7 +517,6 @@ input#author, input#mail, input#url {
 
 #books{
     width: 90%;
-    min-width: 600px;
     display: inline-block;
     padding-top: 20px;
 }
