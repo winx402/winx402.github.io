@@ -176,6 +176,10 @@ a {
   color: #555;
 }
 
+#info-min #guide .guide-selected{
+  border-top: 2px solid #666;
+}
+
 #info-min #guide .guide-button:hover{
   cursor: pointer;
   color: #42A8C0;
