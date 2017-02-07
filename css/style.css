@@ -165,6 +165,10 @@ a {
     padding-left: 5%;
     padding-right: 5%;
   }
+  body {
+      line-height: 190%;
+      font-size: 14px;
+  }
 }
 
 #info-min #guide .guide-button{
@@ -230,13 +234,14 @@ a {
 #wrap #big-title #title-name{
   text-align: center;
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 900;
   max-width: 70%;
   display: inline-block;
   line-height: 36px;
   margin-top: 100px;
   float: none;
   letter-spacing: 4px;
+  line-height: 46px;
 }
 
 #wrap #big-title #something{
@@ -387,15 +392,20 @@ a {
 
 .post .con {
     font-family: 'Microsoft Yahei', Verdana, Arial, Helvetica, sans-serif;
-    color: #555;
-    padding: 18px 0 10px 0;
+    color: #666;
+}
+
+.post .meta {
+    font-family: 'Microsoft Yahei', Verdana, Arial, Helvetica, sans-serif;
+    color: #888;
+    padding: 0 0 8px 0px;
 }
 
 .post .con img {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    max-width: 600px;
+    max-width: 95%;
     padding: 3px;
     border: solid 1px #ddd;
     clear: both;
@@ -407,7 +417,7 @@ a {
 .post .con p {
     text-align: justify;
     text-justify: inter-ideograph;
-    padding: 8px 0;
+    padding: 2px 0;
     /*text-indent:2em;*/
 }
 
