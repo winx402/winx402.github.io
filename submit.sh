@@ -1,9 +1,14 @@
 #!/bin/sh
 
-echo "***********************************************start commit" &&
+echo "git commit -am \""$1"\"" &&
 git commit -am $1 &&
-echo "***********************************************commit complete" &&
-echo "***********************************************push start" &&
-git push
-echo "***********************************************push complete"
+echo "\ngit push" &&
+git push &&
+echo "\nhexo clean" &&
+hexo clean &&
+echo "\nhexo g" &&
+hexo g &&
+echo "\nhexo d" &&
+hexo d &&
+echo "complete!!!"
 exit 1
