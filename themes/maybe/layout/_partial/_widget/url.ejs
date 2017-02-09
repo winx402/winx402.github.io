@@ -1,0 +1,13 @@
+<% if (is_category('read')){ %>
+    <% if (post.word){ %>
+        <%- url_for(post.path) %>
+    <% }else { %>
+        ""
+    <% } %>
+<% }else{ %>
+    <% if (post.list != null && post.list != ""){ %>
+        /tags/<%- post.list %>
+    <% }else { %>
+        <%- url_for(post.path) %>
+    <% } %>
+<% } %>

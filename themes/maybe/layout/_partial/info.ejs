@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<div id="photo">
+    <div id="photo-span">
+        <img src="/img/photo.png">
+        <div><a href="/tags/index"><%= config.title %></a></div>
+    </div>
+</div>
+
+<div id="guide">
+    <div class="guide-button" id="guide-1" _href="/tags/project">project</div>
+    <div class="guide-button" id="guide-2" _href="/tags/note">note</div>
+    <div class="clear"></div>
+    <div class="guide-button" id="guide-3" _href="/tags/life">life</div>
+    <div class="guide-button" id="guide-4" _href="/categories/read">read</div>
+</div>
+
+<div id="second"></div>
+
+<div id="info-bottom">
+    <ul id="link">
+      <li id="info-mail" title="<%= config.author.email %>"><i class="fa fa-envelope" aria-hidden="true"></i></li>
+      <li id="info-github" _href="<%= config.author.github %>"><i class="fa fa-github fa-lg" aria-hidden="true"></i></li>
+      <li id="info-wechat" title="<%= config.author.phone %>"><i class="fa fa-weixin" aria-hidden="true"></i></li>
+    </ul>
+  </div>

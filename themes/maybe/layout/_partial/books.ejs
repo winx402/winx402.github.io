@@ -1,0 +1,25 @@
+<div id="books">
+    <% posts.forEach(function(post, index){ %>
+    <% if((index + 1) % 8 == 0){ %>
+    <div class="book book-right <% if (post.word ){ %>
+        book-post" _href="<%- partial('_widget/url', {post: post}) %>
+    <% } %>">
+        <img title="<%= post.title %>" src="<%= config.book_img_path %><%= post.cover %>">
+    </div>
+    <% } else { %>
+
+    <div class="book <% if (post.word ){ %>
+        book-post" _href="<%- partial('_widget/url', {post: post}) %>
+    <% } %>">
+        <img title="<%= post.title %>" src="<%= config.book_img_path %><%= post.cover %>">
+    </div>
+    <% } %>
+    <% }) %>
+    <div class="clear"></div>
+</div>
+
+<% if(page.total > 1){ %>
+<div id="footer-page">
+    <%- paginator({prev_next: false}) %>
+</div>
+<% } %>

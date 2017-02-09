@@ -1,0 +1,27 @@
+<div id="contents">
+    <section id="content">
+        <% posts.forEach(function(post, index){ %>
+        <article class="post">
+            <header>
+                <h2><a href="<%- partial('_widget/url', {post: post}) %>" title="<%= post.title %>"><%= post.title %></a></h2>
+            </header>
+            <div class="con">
+                <p>
+                    <%- strip_html(post.excerpt) %>
+                    <a class="more" href="<%- partial('_widget/url', {post: post}) %>">[继续阅读]</a>
+                </p>
+            </div>
+            <div class="meta">
+                <i class="fa fa-sun-o"></i> 2016-01-01
+            </div>
+        </article>
+        <% }) %>
+    </section>
+    <div class="clear"></div>
+</div>
+
+<% if(page.total > 1){ %>
+<div id="footer-page">
+    <%- paginator({prev_next: false}) %>
+</div>
+<% } %>
