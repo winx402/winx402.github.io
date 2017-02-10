@@ -6,8 +6,13 @@
     <% } %>">
         <img title="<%= post.title %>" src="<%= config.book_img_path %><%= post.cover %>">
     </div>
+    <% } else if((index + 1) % 4 == 0){ %>
+      <div class="book book-right-4 <% if (post.word ){ %>
+          book-post" _href="<%- partial('_widget/url', {post: post}) %>
+      <% } %>">
+          <img title="<%= post.title %>" src="<%= config.book_img_path %><%= post.cover %>">
+      </div>
     <% } else { %>
-
     <div class="book <% if (post.word ){ %>
         book-post" _href="<%- partial('_widget/url', {post: post}) %>
     <% } %>">
