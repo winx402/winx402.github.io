@@ -158,8 +158,8 @@ a {
   padding-left: 15%;
   padding-right: 15%;
   border-bottom: 1px solid #ddd;
-  -moz-box-shadow: 0px 2px 6px #888888; /* 老的 Firefox */
-  box-shadow: 0px 2px 6px #888888;
+  -moz-box-shadow: 0px 1px 4px #ccc; /* 老的 Firefox */
+  box-shadow: 0px 1px 4px #ccc;
 }
 
 #info-min #guide .guide-button{
