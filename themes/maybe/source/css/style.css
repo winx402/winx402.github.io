@@ -365,6 +365,7 @@ a {
 .post h5 {
     font-weight: 100;
     color: #666;
+    font-size: 14px;
     padding: 3px 0 6px 0;
 }
 
@@ -425,6 +426,12 @@ a {
     max-height: 250px;
 }
 
+.img-note{
+  text-align: center;
+  color: #999;
+  font-size: 10px;
+}
+
 .post .con p {
     text-align: justify;
     text-justify: inter-ideograph;
@@ -463,7 +470,7 @@ code {
     white-space: pre-wrap;
     word-wrap: break-word;
     width: 95%;
-    display: block;
+    display: inline-block;
 }
 
 .post .con pre code {
@@ -478,10 +485,15 @@ code {
     line-height: 18px;
 }
 
+.post .con pre {
+    background: #eee;
+}
+
 #footer {
     border-top: 2px #E3E3E3 solid;
     padding: 20px 15% 10px 15%;
     height: 150px;
+    width: 70%;
     display: block;
     margin: -1px;
 }
