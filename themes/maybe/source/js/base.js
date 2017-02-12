@@ -6,6 +6,10 @@ NProgress.start();
 });
 
 $(".guide-button").click(function () {
+    var classes = $(this).attr('class');
+    if (classes.indexOf('guide-selected') != -1) {
+        return;
+    }
     location.href = $(this).attr("_href");
 });
 
@@ -13,8 +17,8 @@ $(".book-post").click(function () {
     location.href = $(this).attr("_href");
 });
 
-$("#gotop").click(function(){
-    $("#wrap").animate({scrollTop:"0px"},600);
+$(".guide-selected").click(function(){
+    $("body").animate({scrollTop:"0px"},600);
 });
 
 $("#info-github").click(function(){
