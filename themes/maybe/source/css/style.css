@@ -97,7 +97,6 @@ img {
 }
 
 body {
-    line-height: 180%;
     font-size: 14px;
     font-family: 'Lato', 'PingFang SC', 'Microsoft YaHei', 'sans-serif';
     text-align: center;
@@ -255,14 +254,14 @@ a {
   padding-top: 30px;
 }
 
-#wrap #contents, #wrap #books, #wrap #content{
+#wrap #contents, #wrap #books, #wrap #content-specific{
   width: 70%;
   display: inline-block;
   text-align: center;
 }
 
 @media screen and (max-width: 960px) {
-  #wrap #contents, #wrap #books, #wrap #content{
+  #wrap #contents, #wrap #books, #wrap #content-specific{
     width: 90%;
   }
 }
@@ -312,13 +311,13 @@ a {
 }
 
 .post h3 {
-    padding: 4px 0 8px 0;
+    padding: 12px 0 4px 0;
     color: #2d7788;
     font-weight: 600;
 }
 
 .post h4 {
-    padding: 3px 0 6px 0;
+    padding: 2px 0 4px 0;
     color: #222;
     font-size: 15px;
     font-weight: 900;
@@ -328,7 +327,7 @@ a {
     font-weight: 400;
     color: #555;
     font-size: 14px;
-    padding: 3px 0 6px 0;
+    padding: 2px 0 4px 0;
 }
 
 .post h6 {
@@ -367,6 +366,10 @@ a {
 .post .con {
     font-family: 'Microsoft YaHei';
     color: #555;
+}
+
+.post .con .mjx-chtml{
+  margin: 0;
 }
 
 .post .meta {
