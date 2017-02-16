@@ -3,15 +3,15 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: top'blog
+title: winx'blog
 other: something other
-url: https://wangwenxiang1993.github.io
+url: https://github.com/winx402
 author:
   name: wangwenxiang
   nickname: top
-  email: wangwenxiang1993@gmail.com
+  email: winx402@gmail.com
   phone: 187-0111-3061
-  github: https://github.com/wangwenxiang1993
+  github: https://github.com/winx402
 
 deploy:
   type: git
