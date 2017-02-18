@@ -15,7 +15,7 @@ author:
 
 deploy:
   type: git
-  repo: git@github.com:wangwenxiang1993/wangwenxiang1993.github.io.git
+  repo: git@github.com:winx402/winx402.github.io.git
   branch: master
 
 # URL
