@@ -103,7 +103,8 @@ body {
     color: #333;
     margin: 0;
     overflow-y: auto;
-    -webkit-overflow-scrolling : touch;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
 }
 
 body, .hover {
