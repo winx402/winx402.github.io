@@ -272,6 +272,15 @@ a {
   }
 }
 
+#wrap #content-specific table,#wrap #content-specific td,#wrap #content-specific th{
+  border: 1px solid #666;
+  border-collapse:collapse;
+}
+
+#wrap #content-specific table{
+  margin-left: 42px;
+}
+
 #wrap #contents #content{
   width: 100%;
 }
