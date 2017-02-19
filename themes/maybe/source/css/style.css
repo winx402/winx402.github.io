@@ -259,6 +259,7 @@ a {
   text-align: center;
   font-size: 14px;
   padding-top: 30px;
+  max-width: 95%;
 }
 
 #wrap #contents, #wrap #books, #wrap #content-specific{
@@ -270,6 +271,9 @@ a {
 @media screen and (max-width: 960px) {
   #wrap #contents, #wrap #books, #wrap #content-specific{
     width: 90%;
+  }
+  #wrap #big-title #title-name{
+    max-width: 90%;
   }
 }
 
