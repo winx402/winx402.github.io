@@ -105,6 +105,7 @@ body {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
+    line-height: 150%;
 }
 
 body, .hover {
@@ -176,10 +177,6 @@ a {
   height: 56px;
 }
 
-#info-min #guide .{
-  border-top: 2px solid #666;
-}
-
 #info-min #guide .guide-button:hover{
   cursor: pointer;
   color: #42A8C0;
@@ -207,10 +204,6 @@ a {
   #info-min #guide{
     padding-left: 5%;
     padding-right: 5%;
-  }
-  body {
-      line-height: 190%;
-      font-size: 16px;
   }
   #info-min #guide img{
     right: 5%;
@@ -347,7 +340,7 @@ a {
     font-weight: 400;
     color: #555;
     font-size: 14px;
-    padding: 2px 0 4px 0;
+    padding: 4px 0 6px 0;
 }
 
 .post h6 {
@@ -372,7 +365,7 @@ a {
     list-style: decimal inside;
     font-weight: 400;
     margin-left: 30px;
-    color: #666;
+    font-size: 14px;
 }
 
 .page .post .con ul li {
@@ -473,8 +466,8 @@ code {
 
 #footer {
     border-top: 2px #E3E3E3 solid;
-    padding: 20px 15% 10px 15%;
-    height: 150px;
+    padding: 18px 15% 10px 15%;
+    height: 30px;
     width: 70%;
     display: block;
     margin: -1px;
@@ -482,7 +475,6 @@ code {
 
 .foot {
     text-align: center;
-    padding-top: 40px;
 }
 
 .foot #copyright{
