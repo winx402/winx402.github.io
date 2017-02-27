@@ -1,7 +1,9 @@
 #!/bin/sh
 
-echo "git commit -am \""$1"\"" &&
-git commit -am "$1" &&
+echo "git add ." &&
+git add . &&
+echo "git commit -m \""$1"\"" &&
+git commit -m "$1" &&
 echo "\ngit push" &&
 git push &&
 echo "\nhexo clean" &&
