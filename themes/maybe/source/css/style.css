@@ -399,6 +399,7 @@ a {
     display: block;
     margin:auto;
     max-height: 400px;
+    cursor: zoom-in;
 }
 
 .img-note{
@@ -583,4 +584,32 @@ input#author, input#mail, input#url {
 }
 .book-right{
     margin-right: 0;
+}
+
+.img-view{
+    top: 0;
+    position: fixed;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    background-color:rgba(33,33,33,0.5);
+    display: none;
+}
+
+.img-view span{
+    height: 100%;
+    width: 100%;
+    display:table-cell;
+    vertical-align:middle;
+}
+
+
+.img-view span img{
+    min-height: 50%;
+    min-width: 50%;
+    cursor: zoom-out;
 }

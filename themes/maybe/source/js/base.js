@@ -24,3 +24,18 @@ $(".guide-selected").click(function(){
 $("#info-github").click(function(){
     window.open($(this).attr("_href"));
 });
+
+$(".post .con img").click(function () {
+    var url = $(this).attr("src");
+    var img = $(".img-view span img")
+    var h = $(window).height()-20;
+    var w = $(window).width()-40;
+    img.attr("src",url);
+    img.css("max-height", h+"px");
+    img.css("max-width", w+"px");
+    $(".img-view").css("display","table");
+});
+
+$(".img-view").click(function () {
+    $(".img-view").css("display","none");
+});

@@ -4,4 +4,4 @@ Thumbs.db
 node_modules/
 public/
 .deploy*/
-submit.sh
+.idea/
