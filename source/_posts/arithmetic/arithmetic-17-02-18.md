@@ -89,7 +89,7 @@ struct BSTreeNode
 　　　最终链表：4=6=8=10=12=14=16
 
 ## python实现：
-<div class="highlighter-rouge"><pre class="highlight"><code>
+```python
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
@@ -177,7 +177,6 @@ if __name__ == "__main__":
     tree = __initTree()
     __sort(tree)
     __print()
-</code></pre></div>
-
+```
 ## 最后再说一些：
 ##### 本身题目不是很难，把大学学习的数据结构拿出来看一看就明白了，完成之后我也去网络中找了找这道题，其他人也基本是用中序遍历的方法，大多只有代码，没有解题思路，所以我也没有仔细去看，默认自己是对的。这题目比较麻烦的是代码的编写上面，需要用到递归和一些数据结构的代码实现。加上我之前python用的不多，在调试代码中还是花了一些功夫的（主要在语法的学习上）。所以今后还是要多用python写一写，多熟悉一下。
