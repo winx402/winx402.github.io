@@ -253,6 +253,7 @@ a {
   font-size: 14px;
   padding-top: 30px;
   max-width: 95%;
+    display: inline-block;
 }
 
 #wrap #contents, #wrap #books, #wrap #content-specific{
