@@ -33,75 +33,137 @@ String result = start.substring(m,n) + start.substring(0, m);
 
 #### 基于这套交换逻辑，想要实现如下算法，却发现不符合题目要求：
 ##### 1. 初始字符串为abcdef，左旋转2位得到字符串cdefab
-
-|&nbsp;a&nbsp;|&nbsp;b&nbsp;|&nbsp;c&nbsp;|&nbsp;d&nbsp;|&nbsp;e&nbsp;|&nbsp;f&nbsp;|
-|-|-|-|-|-|-|
+<table><tr>
+<td>&nbsp;a&nbsp;</td>
+<td>&nbsp;b&nbsp;</td>
+<td>&nbsp;c&nbsp;</td>
+<td>&nbsp;d&nbsp;</td>
+<td>&nbsp;e&nbsp;</td>
+<td>&nbsp;f&nbsp;</td>
+</tr></table>
 
 ##### 2. 将array[0]写入到到array[4]， 用tmp记录array[4]
+<table><tr>
+<td>&nbsp;a&nbsp;</td>
+<td>&nbsp;b&nbsp;</td>
+<td>&nbsp;c&nbsp;</td>
+<td>&nbsp;d&nbsp;</td>
+<td>&nbsp;<font color='red'>a</font>&nbsp;</td>
+<td>&nbsp;f&nbsp;</td>
+</tr></table>
 
-|&nbsp;a&nbsp;|&nbsp;b&nbsp;|&nbsp;c&nbsp;|&nbsp;d&nbsp;|&nbsp;a&nbsp;|&nbsp;f&nbsp;|
-|-|-|-|-|-|-|
 　　　tmp = e
 
 ##### 3. 将array[4]写入到到array[2]， 用tmp记录array[2]
+<table><tr>
+<td>&nbsp;a&nbsp;</td>
+<td>&nbsp;b&nbsp;</td>
+<td>&nbsp;<font color='red'>e</font>&nbsp;</td>
+<td>&nbsp;d&nbsp;</td>
+<td>&nbsp;a&nbsp;</td>
+<td>&nbsp;f&nbsp;</td>
+</tr></table>
 
-|&nbsp;a&nbsp;|&nbsp;b&nbsp;|&nbsp;e&nbsp;|&nbsp;d&nbsp;|&nbsp;a&nbsp;|&nbsp;f&nbsp;|
-|-|-|-|-|-|-|
 　　　tmp = c
 
 ##### 4. 将array[2]写入到到array[0]， 用tmp记录array[0]
+<table><tr>
+<td>&nbsp;<font color='red'>c</font>&nbsp;</td>
+<td>&nbsp;b&nbsp;</td>
+<td>&nbsp;e&nbsp;</td>
+<td>&nbsp;d&nbsp;</td>
+<td>&nbsp;a&nbsp;</td>
+<td>&nbsp;f&nbsp;</td>
+</tr></table>
 
-|&nbsp;c&nbsp;|&nbsp;b&nbsp;|&nbsp;e&nbsp;|&nbsp;d&nbsp;|&nbsp;a&nbsp;|&nbsp;f&nbsp;|
-|-|-|-|-|-|-|
 　　　tmp = a
 
 ##### 问题就出在第四步，回到起点后，继续交换显然是错误的，这就需要额外的空间去记录那些位置是已经交换的，并且需要的额外空间随着原始字符串长度的增加而线性增长，所以这种方式的空间负责度为O(n),不符合O(1)的要求。
 
 #### 于是想到的另外一种解题方式，依次将数组元素与之后的第m位交换：
 ##### 1. 初始字符串为abcdef，
-
-|&nbsp;a&nbsp;|&nbsp;b&nbsp;|&nbsp;c&nbsp;|&nbsp;d&nbsp;|&nbsp;e&nbsp;|&nbsp;f&nbsp;|
-|-|-|-|-|-|-|
+<table><tr>
+<td>&nbsp;a&nbsp;</td>
+<td>&nbsp;b&nbsp;</td>
+<td>&nbsp;c&nbsp;</td>
+<td>&nbsp;d&nbsp;</td>
+<td>&nbsp;e&nbsp;</td>
+<td>&nbsp;f&nbsp;</td>
+</tr></table>
 
 ##### 2. 将array[0]与array[2]交换
 
-|&nbsp;<font color='red'>c</font>&nbsp;|&nbsp;b&nbsp;|&nbsp;<font color='red'>a</font>&nbsp;|&nbsp;d&nbsp;|&nbsp;e&nbsp;|&nbsp;f&nbsp;|
-|-|-|-|-|-|-|
+<table><tr>
+<td>&nbsp;<font color='red'>c</font>&nbsp;</td>
+<td>&nbsp;b&nbsp;</td>
+<td>&nbsp;<font color='red'>a</font>&nbsp;</td>
+<td>&nbsp;d&nbsp;</td>
+<td>&nbsp;e&nbsp;</td>
+<td>&nbsp;f&nbsp;</td>
+</tr></table>
 
 ##### 3.  将array[1]与array[3]交换
-
-|&nbsp;c&nbsp;|&nbsp;<font color='red'>d</font>&nbsp;|&nbsp;a&nbsp;|&nbsp;<font color='red'>b</font>&nbsp;|&nbsp;e&nbsp;|&nbsp;f&nbsp;|
-|-|-|-|-|-|-|
+<table><tr>
+<td>&nbsp;c&nbsp;</td>
+<td>&nbsp;<font color='red'>d</font>&nbsp;</td>
+<td>&nbsp;a&nbsp;</td>
+<td>&nbsp;<font color='red'>b</font>&nbsp;</td>
+<td>&nbsp;e&nbsp;</td>
+<td>&nbsp;f&nbsp;</td>
+</tr></table>
 
 ##### 4. 将array[2]与array[4]交换
-
-|&nbsp;c&nbsp;|&nbsp;d&nbsp;|&nbsp;<font color='red'>e</font>&nbsp;|&nbsp;b&nbsp;|&nbsp;<font color='red'>a</font>&nbsp;|&nbsp;f&nbsp;|
-|-|-|-|-|-|-|
+<table><tr>
+<td>&nbsp;c&nbsp;</td>
+<td>&nbsp;d&nbsp;</td>
+<td>&nbsp;<font color='red'>e</font>&nbsp;</td>
+<td>&nbsp;b&nbsp;</td>
+<td>&nbsp;<font color='red'>a</font>&nbsp;</td>
+<td>&nbsp;f&nbsp;</td>
+</tr></table>
 
 ##### 5. 将array[3]与array[5]交换
-
-|&nbsp;c&nbsp;|&nbsp;d&nbsp;|&nbsp;e&nbsp;|&nbsp;<font color='red'>f</font>&nbsp;|&nbsp;a&nbsp;|&nbsp;<font color='red'>b</font>&nbsp;|
-|-|-|-|-|-|-|
+<table><tr>
+<td>&nbsp;c&nbsp;</td>
+<td>&nbsp;d&nbsp;</td>
+<td>&nbsp;e&nbsp;</td>
+<td>&nbsp;<font color='red'>f</font>&nbsp;</td>
+<td>&nbsp;a&nbsp;</td>
+<td>&nbsp;<font color='red'>b</font>&nbsp;</td>
+</tr></table>
 
 ##### 这种实现方式需要进行n-m次交换，时间复杂度为O(n),需要两个额外空间，分别是交换数组元素的tmp指针，和记录当前交换位置的指针，这也符合常数空间复杂度O(1)。
 
 ## 解题：
-##### 看了网络上的一些其他解法，也比较巧妙
-##### 字符串abcdef，我们想移动ab到cdef之后，我们可以将ab做对称反转变成ba，cdef变成fedc，整个字符串变成bafedc,反向读取则为cdefab
-```C++
-public static String[] exchange(String[] s,int from,int to){
+#### 看了网络上的一些其他解法，也比较巧妙:
+1. 首先将原字符串分为两个部分，即X:ab，Y:cdef；
+2. 将X反转，X->X^T，即得：ab->ba；将Y反转，Y->Y^T，即得：cdef->fedc。
+3. 反转上述步骤得到的结果字符串X^TY^T，即反转字符串bafedc的两部分（ba和fedc）给予反转，bafedc得到cdefab，形式化表示为(X^TY^T)^T=YX，这就实现了整个反转。
 
-        while(from<to){
-            String temp = s[from];
-            s[from++] = s[to];
-            s[to--] = temp;
-
-        }
-        return s;
+```C
+void ReverseString(char* s,int from,int to)
+{
+    while (from < to)
+    {
+        char t = s[from];
+        s[from++] = s[to];
+        s[to--] = t;
     }
+}
+
+void LeftRotateString(char* s,int n,int m)
+{
+    m %= n;               //若要左移动大于n位，那么和%n 是等价的
+    ReverseString(s, 0, m - 1); //反转[0..m - 1]，套用到上面举的例子中，就是X->X^T，即 abc->cba
+    ReverseString(s, m, n - 1); //反转[m..n - 1]，例如Y->Y^T，即 def->fed
+    ReverseString(s, 0, n - 1); //反转[0..n - 1]，即如整个反转，(X^TY^T)^T=YX，即 cbafed->defabc。
+}
 ```
 
 ##### 调用3次此方法即可左旋字符串
 
 ## 最后再说一些：
 ##### 对于时间复杂度和空间复杂度的计算，需要去低阶项，去掉常数项，去掉高阶项，T(n)=(2n<sup>2</sup>+n+1)=O(n<sup>2</sup>);若执行时间是一个与问题规模n无关的常数，算法的时间复杂度为常数阶，记作T(n)=O(1)。
+
+### 参考链接：
+[http://taop.marchtea.com/01.01.html](http://taop.marchtea.com/01.01.html)
