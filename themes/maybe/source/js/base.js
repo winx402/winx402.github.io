@@ -31,8 +31,8 @@ $(".post .con img").click(function () {
     var h = $(window).height()-20;
     var w = $(window).width()-40;
     img.attr("src",url);
-    img.css({"max-height": h+"px","min-height":"50%","min-width":""});
-    img.css({"max-width":w+"px","min-width":"50%","min-height":""});
+    img.css({"max-height": h+"px"});
+    img.css({"max-width":w+"px"});
     $(".img-view").css("display","table");
 });
 
