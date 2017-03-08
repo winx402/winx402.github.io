@@ -526,6 +526,10 @@ input#author, input#mail, input#url {
     font-weight: 900;
 }
 
+#footer-page a{
+    cursor: pointer;
+}
+
 #footer-page .current{
     padding: 6px 10px;
 }
