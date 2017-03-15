@@ -446,7 +446,7 @@ code {
     border-radius: 3px;
     white-space: pre-wrap;
     word-wrap: break-word;
-    width: 95%;
+    /*width: 95%;*/
     display: inline-block;
 }
 
