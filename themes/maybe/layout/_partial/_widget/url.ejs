@@ -1,5 +1,5 @@
 <% if (is_category('read')){ %>
-    <% if (post.word){ %>
+    <% if (post.content.length != 0){ %>
         <%- url_for(post.path) %>
     <% }else { %>
         ""

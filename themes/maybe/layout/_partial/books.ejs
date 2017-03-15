@@ -1,22 +1,19 @@
 <div id="books">
     <% posts.forEach(function(post, index){ %>
     <% if((index + 1) % 8 == 0){ %>
-    <div class="book book-right <% if (post.word ){ %>
+    <div class="book book-right <% if (post.content.length != 0 ){ %>
         book-post" _href="<%- partial('_widget/url', {post: post}) %>
-    <% } %>">
-        <img title="<%= post.title %>" src="<%= config.book_img_path %><%= post.cover %>">
+    <% } %>" style="background-image: url('<%= config.book_img_path %><%= post.cover %>')">
     </div>
     <% } else if((index + 1) % 4 == 0){ %>
-      <div class="book book-right-4 <% if (post.word ){ %>
+      <div class="book book-right-4 <% if (post.content.length != 0 ){ %>
           book-post" _href="<%- partial('_widget/url', {post: post}) %>
-      <% } %>">
-          <img title="<%= post.title %>" src="<%= config.book_img_path %><%= post.cover %>">
+      <% } %>" style="background-image: url('<%= config.book_img_path %><%= post.cover %>')">
       </div>
     <% } else { %>
-    <div class="book <% if (post.word ){ %>
+    <div class="book <% if (post.content.length != 0 ){ %>
         book-post" _href="<%- partial('_widget/url', {post: post}) %>
-    <% } %>">
-        <img title="<%= post.title %>" src="<%= config.book_img_path %><%= post.cover %>">
+    <% } %>" style="background-image: url('<%= config.book_img_path %><%= post.cover %>')">
     </div>
     <% } %>
     <% }) %>

@@ -521,8 +521,9 @@ input#author, input#mail, input#url {
 }
 
 #footer-page a, #footer-page span{
-    border:solid 1px #DEDEDE; margin-right:4px;
-    padding: 6px 10px;
+    border:solid 1px #DEDEDE;
+    margin-right:6px;
+    padding: 6px 12px;
     font-weight: 900;
 }
 
@@ -531,7 +532,7 @@ input#author, input#mail, input#url {
 }
 
 #footer-page .current{
-    padding: 6px 10px;
+    padding: 6px 12px;
 }
 
 #footer-page .space{
@@ -553,23 +554,24 @@ input#author, input#mail, input#url {
 .book{
     float: left;
     width: 11%;
+    height: 0;
+    padding-bottom: 15.4%;
     border: solid 1px #bbb;
     border-radius: 3px;
     margin-right: 1.3%;
     margin-bottom: 14px;
-}
-
-
-
-.book img{
-    width: 92%;
-    margin: 4% 0 4% 4%;
-    display: block;
+    -webkit-background-size: cover;
+    /* 指定使用padding-box区域显示背景图片 */
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+    background-size: 92% 94.28%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .book-post:hover{
-    background-color: #bbb;
     cursor: pointer;
+    border-color: #2d7788;
 }
 
 .book-right-4{
@@ -579,6 +581,7 @@ input#author, input#mail, input#url {
 @media screen and (max-width: 690px) {
   .book{
       width: 22%;
+      padding-bottom: 30.9%;
       margin-right: 2.5%;
       margin-bottom: 14px;
   }
