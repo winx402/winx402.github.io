@@ -1,9 +1,11 @@
 ---
 layout: book
 title: 黄金时代
+author: 王小波
 date: 2017/04/24
 cover: goldenAge.jpg
 categories: [read]
+color: '#F8CA6B'
 ---
 
 ##### 《黄金时代》包括中篇小说《黄金时代》、《三十而立》、《似水流年》、《革命时期的爱情》和《我的阴阳两界》等。
