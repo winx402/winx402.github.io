@@ -2,7 +2,7 @@
 layout: post
 title: 切金条
 date: 2017/02/23
-tags: [arithmetic, index]
+tags: [tech, arithmetic, index]
 ---
 
 ## 题目要求：

@@ -2,7 +2,7 @@
 layout: post
 title: ThreadLocal源码解析
 date: 2017/03/09
-tags: [note, index]
+tags: [tech, note, index]
 ---
 
 ## ThreadLocal是什么

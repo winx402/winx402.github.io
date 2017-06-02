@@ -1,24 +1,25 @@
+var nowPage;
+
 NProgress.configure({ showSpinner: false, minimum: 0.1 });
 NProgress.start();
     $(window).load(function() {
     NProgress.done(true);
     $('.fade').removeClass('out');
+    nowPage = location.pathname
 });
 
-$(".guide-button").click(function () {
-    var classes = $(this).attr('class');
-    if (classes.indexOf('guide-selected') != -1) {
-        return;
+$(".guide-button,.extend").click(function () {
+    var page = $(this).attr("_href");
+    if (page == nowPage) {
+        $("body").animate({scrollTop:"0px"},600);
+    }else {
+        nowPage = page;
+        location.href = $(this).attr("_href");
     }
-    location.href = $(this).attr("_href");
 });
 
 $(".book-post").click(function () {
     location.href = $(this).attr("_href");
-});
-
-$(".guide-selected").click(function(){
-    $("body").animate({scrollTop:"0px"},600);
 });
 
 $("#info-github").click(function(){
@@ -38,4 +39,20 @@ $(".post .con img").click(function () {
 
 $(".img-view").click(function () {
     $(".img-view").css("display","none");
+});
+
+$(".guide-extend").mouseover(function () {
+    $("#tech-extend").css("display", "block")
+});
+
+$(".guide-extend").mouseleave(function () {
+    $("#tech-extend").css("display", "none")
+});
+
+$("#tech-extend").mouseover(function () {
+    $("#tech-extend").css("display", "block")
+});
+
+$("#tech-extend").mouseleave(function () {
+    $("#tech-extend").css("display", "none")
 });

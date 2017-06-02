@@ -2,7 +2,7 @@
 layout: post
 title: 根据上排给出十个数，在其下排填出对应的十个数
 date: 2017/02/16
-tags: [arithmetic, index]
+tags: [tech, arithmetic, index]
 ---
 
 ## 题目要求：

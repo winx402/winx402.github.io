@@ -172,6 +172,36 @@ a {
   color: #555;
 }
 
+#info-min #tech-extend{
+    display: none;
+    position: fixed;
+    top: 58px;
+    left: 15%;
+    z-index: 2;
+    width: 64px;
+    margin-left: 36px;
+    padding: 2px 0px;
+    background-color: #eee;
+    -moz-box-shadow: 0px 2px 6px #ccc; /* 老的 Firefox */
+    box-shadow: 0px 2px 6px #ccc;
+}
+
+#info-min #tech-extend .extend{
+    text-align: center;
+    color: #555;
+    padding: 2px;
+}
+
+#info-min #tech-extend .extend-border{
+    border-top: 1px solid #bbb;
+}
+
+#info-min #tech-extend .extend:hover{
+    cursor: pointer;
+    background-color: #42A8C0;
+    color: #eee;
+}
+
 #info-min #guide .guide-selected{
   border-top: 2px solid #666;
   height: 56px;
@@ -208,6 +238,9 @@ a {
   #info-min #guide img{
     right: 5%;
   }
+    #info-min #tech-extend{
+        left: 5%;
+    }
 }
 
 #wrap {

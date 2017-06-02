@@ -2,7 +2,7 @@
 layout: post
 title: 判断两个链表是否相交
 date: 2017/02/25
-tags: [arithmetic, index]
+tags: [tech, arithmetic, index]
 ---
 
 ## 题目要求：

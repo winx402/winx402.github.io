@@ -2,7 +2,7 @@
 layout: post
 title: 等分数组
 date: 2017/04/16
-tags: [arithmetic, index]
+tags: [tech, arithmetic, index]
 ---
 
 ## 题目要求：

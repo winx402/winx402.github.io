@@ -1,8 +1,22 @@
+<!--<div id="guide">-->
+    <!--<div class="guide-button <% if (page.tag == "index"){ %>guide-selected<% } %>" _href="/tags/index">首页</div>-->
+    <!--<div class="guide-button <% if (page.tag == "arithmetic"){ %>guide-selected<% } %>" _href="/tags/arithmetic">算法</div>-->
+    <!--<div class="guide-button <% if (page.tag == "note"){ %>guide-selected<% } %>" _href="/tags/note">笔记</div>-->
+    <!--<div class="guide-button <% if (page.tag == "life"){ %>guide-selected<% } %>" _href="/tags/life">生活</div>-->
+    <!--<div class="guide-button <% if (page.category == "read"){ %>guide-selected<% } %>" _href="/categories/read">阅读</div>-->
+    <!--<img src="/img/photo.png">-->
+<!--</div>-->
+
 <div id="guide">
-    <div class="guide-button <% if (page.tag == "index"){ %>guide-selected<% } %>" _href="/tags/index">首页</div>
-    <div class="guide-button <% if (page.tag == "arithmetic"){ %>guide-selected<% } %>" _href="/tags/arithmetic">算法</div>
-    <div class="guide-button <% if (page.tag == "note"){ %>guide-selected<% } %>" _href="/tags/note">笔记</div>
-    <div class="guide-button <% if (page.tag == "life"){ %>guide-selected<% } %>" _href="/tags/life">生活</div>
-    <div class="guide-button <% if (page.category == "read"){ %>guide-selected<% } %>" _href="/categories/read">阅读</div>
+    <div class="guide-button <% if (page.tag == "index"){ %>guide-selected<% } %>" _href="/tags/index/">首页</div>
+    <div class="guide-button guide-extend <% if (page.tag == "tech" || page.tag == "note" || page.tag == "river" || page.tag == "arithmetic"){ %>guide-selected<% } %>" _href="/tags/tech/">技术</div>
+    <div class="guide-button <% if (page.tag == "life"){ %>guide-selected<% } %>" _href="/tags/life/">生活</div>
+    <div class="guide-button <% if (page.category == "read"){ %>guide-selected<% } %>" _href="/categories/read/">阅读</div>
     <img src="/img/photo.png">
+</div>
+
+<div id="tech-extend">
+    <div class="extend" _href="/tags/note/">笔记</div>
+    <div class="extend extend-border" _href="/tags/arithmetic/">算法</div>
+    <div class="extend extend-border" _href="/tags/river/">river</div>
 </div>
