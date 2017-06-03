@@ -151,17 +151,17 @@ a {
 
 #info-min #guide{
   padding-top: 0;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   background-color: #eee;
   position: fixed;
   top: 0px;
-  height: 60px;
+  height: 59px;
   padding-left: 15%;
   padding-right: 15%;
   border-bottom: 1px solid #ddd;
-  -moz-box-shadow: 0px 1px 4px #ccc; /* 老的 Firefox */
-  box-shadow: 0px 1px 4px #ccc;
+  -moz-box-shadow: 0px 1px 6px #ccc; /* 老的 Firefox */
+  box-shadow: 0px 1px 6px #ccc;
 }
 
 #info-min #guide .guide-button{
@@ -170,16 +170,17 @@ a {
   height: 100%;
   font-size: 14px;
   color: #555;
+    padding-bottom: 1px;
 }
 
 #info-min #tech-extend{
     display: none;
     position: fixed;
-    top: 58px;
+    top: 60px;
     left: 15%;
-    z-index: 2;
-    width: 64px;
-    margin-left: 36px;
+    z-index: 1;
+    width: 76px;
+    margin-left: 30px;
     padding: 2px 0px;
     background-color: #eee;
     -moz-box-shadow: 0px 2px 6px #ccc; /* 老的 Firefox */
@@ -195,6 +196,11 @@ a {
 #info-min #tech-extend .extend-border{
     border-top: 1px solid #bbb;
 }
+#info-min #tech-extend .extend-selected{
+    border-left: 3px solid #666;
+    padding-right: 3px;
+}
+
 
 #info-min #tech-extend .extend:hover{
     cursor: pointer;
@@ -205,6 +211,7 @@ a {
 #info-min #guide .guide-selected{
   border-top: 2px solid #666;
   height: 56px;
+    padding-bottom: 2px;
 }
 
 #info-min #guide .guide-button:hover{

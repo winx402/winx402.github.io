@@ -41,18 +41,10 @@ $(".img-view").click(function () {
     $(".img-view").css("display","none");
 });
 
-$(".guide-extend").mouseover(function () {
+$(".show-extend").mouseover(function () {
     $("#tech-extend").css("display", "block")
 });
 
-$(".guide-extend").mouseleave(function () {
-    $("#tech-extend").css("display", "none")
-});
-
-$("#tech-extend").mouseover(function () {
-    $("#tech-extend").css("display", "block")
-});
-
-$("#tech-extend").mouseleave(function () {
+$(".show-extend").mouseleave(function () {
     $("#tech-extend").css("display", "none")
 });
