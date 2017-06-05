@@ -10,6 +10,9 @@ tags: [tech, river, index]
 
 #### github地址：[river](https://github.com/winx402/river)
 
+## river基础
+##### river是通过cglib动态代理作为基础来实现的，这里并没有使用jdk自带的代理方式实现。
+
 ## river现有功能
 ### aop
 ##### 　　aop是一个比较典型的例子，aop实现在目标方法之前、之后、异常等情况下的代码插入。这些插入的代码可以做类似于日志记录，流量统计等工作。也可以在before代码中修改目标方法参数，在after中修改目标方法返回值。但是没有办法控制目标方法是否继续（除非抛出异常）。
