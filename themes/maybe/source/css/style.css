@@ -356,22 +356,25 @@ a {
     padding: 0 0 12px 0;
     color: #5D245F;
     font-weight: 700;
+    font-size: 28px;
 }
 
 .post h2 {
     padding: 5px 0 10px 0;
     color: #94003D;
     font-weight: 700;
+    font-size: 24px;
 }
 
 .post h3 {
-    padding: 12px 0 4px 0;
+    padding: 12px 0 6px 0;
     color: #2d7788;
     font-weight: 600;
+    font-size: 18px;
 }
 
 .post h4 {
-    padding: 2px 0 4px 0;
+    padding: 2px 0 6px 0;
     color: #222;
     font-size: 15px;
     font-weight: 900;
@@ -381,7 +384,7 @@ a {
     font-weight: 400;
     color: #555;
     font-size: 14px;
-    padding: 4px 0 6px 0;
+    padding: 6px 0 6px 0;
 }
 
 .post h6 {
@@ -565,6 +568,8 @@ input#author, input#mail, input#url {
     margin-right:6px;
     padding: 6px 12px;
     font-weight: 900;
+    border-radius: 4px;
+
 }
 
 #footer-page a{
