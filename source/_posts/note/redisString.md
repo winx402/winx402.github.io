@@ -6,6 +6,7 @@ tags: [tech, note, index, redis]
 ---
 
 ##### redis是基于C语言的，但是redis没有直接使用C语言的传统字符串，而是自己构建了一种简单动态字符串的抽象类型。简称SDS；
+<!--more-->
 ### SDS数据结构
 ##### 每个sds.h/sdshdr结构表示一个SDS值：
 ```C
