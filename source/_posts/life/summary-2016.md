@@ -3,6 +3,7 @@ layout: post
 title: 2016走了
 date: 2017/01/01
 tags: [life, index]
+original: true
 img: /life/2016-bg.jpg
 color: "#777"
 ---

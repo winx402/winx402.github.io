@@ -3,6 +3,7 @@ layout: post
 title: 等分数组
 date: 2017/04/16
 tags: [tech, arithmetic, index]
+original: true
 ---
 
 ## 题目要求：

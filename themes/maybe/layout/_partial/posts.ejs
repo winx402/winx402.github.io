@@ -3,7 +3,8 @@
         <% posts.forEach(function(post, index){ %>
         <article class="post">
             <header>
-                <h2><a href="<%- partial('_widget/url', {post: post}) %>" title="<%= post.title %>"><%= post.title %></a></h2>
+                <h2><a href="<%- partial('_widget/url', {post: post}) %>"
+                       title="<%= post.title %>"><%= post.title %></a></h2>
             </header>
             <div class="con">
                 <p>
@@ -12,7 +13,10 @@
                 </p>
             </div>
             <div class="meta">
-                <i class="fa fa-sun-o"></i> <%- date(post.date, 'YYYY-MM-DD') %>
+                <i class="fa fa-sun-o">&nbsp;<%- date(post.date, 'YYYY-MM-DD') %></i>
+                <% if (post.original){ %>
+                    <i class="fa fa-flag-o">&nbsp;原创</i>
+                <% }%>
             </div>
         </article>
         <% }) %>

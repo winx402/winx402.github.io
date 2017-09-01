@@ -2,6 +2,7 @@
 layout: post
 title: river工具介绍
 date: 2017/06/02
+original: true
 tags: [tech, river, index]
 ---
 

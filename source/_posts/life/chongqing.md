@@ -3,6 +3,7 @@ layout: post
 title: 又到重庆
 date: 2017/03/06
 tags: [life, index]
+original: true
 img: life/chongqing-bg.jpeg
 ---
 

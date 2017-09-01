@@ -2,6 +2,7 @@
 layout: post
 title: 又到云南
 date: 2017/04/04
+original: true
 tags: [life, index]
 ---
 

@@ -433,6 +433,10 @@ a {
     font-size: 12px;
 }
 
+.post .meta i{
+    margin-right: 5px;
+}
+
 .post .con img {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;

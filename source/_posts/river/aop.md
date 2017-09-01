@@ -2,6 +2,7 @@
 layout: post
 title: Aop
 date: 2017/06/04
+original: true
 tags: [tech, river, index]
 color: '#E30D23'
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: 最近的一些面试感受
 date: 2017/08/31
+original: true
 tags: [life, index]
 ---
 

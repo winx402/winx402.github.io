@@ -2,6 +2,7 @@
 layout: post
 title: 人生需要失败
 date: 2017/03/18
+original: true
 tags: [life, index]
 ---
 

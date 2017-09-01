@@ -2,6 +2,7 @@
 layout: post
 title: 缓存
 date: 2017/06/05
+original: true
 tags: [tech, river, index]
 ---
 

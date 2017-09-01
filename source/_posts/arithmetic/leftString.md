@@ -3,6 +3,7 @@ layout: post
 title: 左旋转字符串
 date: 2017/03/06
 tags: [tech, arithmetic, index]
+original: true
 ---
 
 ## 题目要求：
