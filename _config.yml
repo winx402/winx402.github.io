@@ -18,6 +18,16 @@ deploy:
   repo: git@github.com:winx402/winx402.github.io.git
   branch: master
 
+tags:
+  index: 首页
+  tech: 技术
+  life: 生活
+  note: 笔记
+  arithmetic: 算法
+  river: river项目
+  network: 计算机网络
+  redis: redis
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 root: /
