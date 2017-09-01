@@ -385,6 +385,7 @@ a {
     color: #555;
     font-size: 14px;
     padding: 6px 0 6px 0;
+    line-height: 1.8em;
 }
 
 .post h6 {
@@ -489,8 +490,6 @@ code {
     border-radius: 3px;
     white-space: pre-wrap;
     word-wrap: break-word;
-    /*width: 95%;*/
-    display: inline-block;
 }
 
 .post .con pre code {
