@@ -4,6 +4,7 @@ title: 判断两个链表是否相交
 date: 2017/02/25
 tags: [tech, arithmetic, index]
 original: true
+tag: [[算法, arithmetic]]
 ---
 
 ## 题目要求：

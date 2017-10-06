@@ -4,6 +4,7 @@ title: 根据上排给出十个数，在其下排填出对应的十个数
 date: 2017/02/16
 tags: [tech, arithmetic, index]
 original: true
+tag: [[算法, arithmetic]]
 ---
 
 ## 题目要求：

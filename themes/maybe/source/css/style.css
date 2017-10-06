@@ -173,40 +173,40 @@ a {
     padding-bottom: 1px;
 }
 
-#info-min #tech-extend{
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 15%;
-    z-index: 1;
-    width: 76px;
-    margin-left: 30px;
-    padding: 2px 0px;
-    background-color: #eee;
-    -moz-box-shadow: 0px 2px 6px #ccc; /* 老的 Firefox */
-    box-shadow: 0px 2px 6px #ccc;
-}
+/*#info-min #tech-extend{*/
+    /*display: none;*/
+    /*position: fixed;*/
+    /*top: 60px;*/
+    /*left: 15%;*/
+    /*z-index: 1;*/
+    /*width: 76px;*/
+    /*margin-left: 30px;*/
+    /*padding: 2px 0px;*/
+    /*background-color: #eee;*/
+    /*-moz-box-shadow: 0px 2px 6px #ccc; !* 老的 Firefox *!*/
+    /*box-shadow: 0px 2px 6px #ccc;*/
+/*}*/
 
-#info-min #tech-extend .extend{
-    text-align: center;
-    color: #555;
-    padding: 2px;
-}
+/*#info-min #tech-extend .extend{*/
+    /*text-align: center;*/
+    /*color: #555;*/
+    /*padding: 2px;*/
+/*}*/
 
-#info-min #tech-extend .extend-border{
-    border-top: 1px solid #bbb;
-}
-#info-min #tech-extend .extend-selected{
-    border-left: 3px solid #666;
-    padding-right: 3px;
-}
+/*#info-min #tech-extend .extend-border{*/
+    /*border-top: 1px solid #bbb;*/
+/*}*/
+/*#info-min #tech-extend .extend-selected{*/
+    /*border-left: 3px solid #666;*/
+    /*padding-right: 3px;*/
+/*}*/
 
 
-#info-min #tech-extend .extend:hover{
-    cursor: pointer;
-    background-color: #42A8C0;
-    color: #eee;
-}
+/*#info-min #tech-extend .extend:hover{*/
+    /*cursor: pointer;*/
+    /*background-color: #42A8C0;*/
+    /*color: #eee;*/
+/*}*/
 
 #info-min #guide .guide-selected{
   border-top: 2px solid #666;
@@ -245,9 +245,9 @@ a {
   #info-min #guide img{
     right: 5%;
   }
-    #info-min #tech-extend{
-        left: 5%;
-    }
+    /*#info-min #tech-extend{*/
+        /*left: 5%;*/
+    /*}*/
 }
 
 #wrap {
@@ -429,12 +429,12 @@ a {
 .post .meta {
     font-family: 'Lato', 'PingFang SC', 'Microsoft YaHei', 'sans-serif';
     color: #888;
-    padding: 0 0 8px 0px;
+    padding: 0 0 8px 0;
     font-size: 12px;
 }
 
 .post .meta i{
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 .post .con img {

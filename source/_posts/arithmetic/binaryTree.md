@@ -4,6 +4,7 @@ title: 将二元查找树转变成排序的双向链表
 date: 2017/02/18
 tags: [tech, arithmetic, index]
 original: true
+tag: [[算法, arithmetic]]
 ---
 
 ## 题目要求：

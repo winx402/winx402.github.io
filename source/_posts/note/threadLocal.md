@@ -3,7 +3,8 @@ layout: post
 title: ThreadLocal源码解析
 date: 2017/03/09
 original: true
-tags: [tech, note, index]
+tags: [tech, note, index, java]
+tag: [[java, java]]
 ---
 
 ## ThreadLocal是什么

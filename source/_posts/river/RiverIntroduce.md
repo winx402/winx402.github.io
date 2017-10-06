@@ -3,7 +3,8 @@ layout: post
 title: river工具介绍
 date: 2017/06/02
 original: true
-tags: [tech, river, index]
+tags: [tech, river, index, java]
+tag: [[river, river]]
 ---
 
 ##### 　　river是一个java工具包，是对java的method的增强。在原有的method调用流程不变的情况下，尽可能用注解去增强目标方法的灵活性。river希望做的是解耦java method 之间的调用关系。实现代码无侵入或者少侵入的流程控制。
@@ -12,7 +13,7 @@ tags: [tech, river, index]
 #### github地址：[river](https://github.com/winx402/river)
 
 ## river基础
-##### river是通过cglib动态代理作为基础来实现的，这里并没有使用jdk自带的代理方式实现。
+##### river是基于cglib动态代理以及guava作为基础来实现的，这里并没有使用jdk自带的代理方式实现。部分功能的实现是依靠guava或者在guava之上封装来完成的。
 
 ## river现有功能
 ### aop

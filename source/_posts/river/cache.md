@@ -3,7 +3,8 @@ layout: post
 title: 缓存
 date: 2017/06/05
 original: true
-tags: [tech, river, index]
+tags: [tech, river, index, java]
+tag: [[river, river]]
 ---
 
 ##### 　　cache的功能显而易见，是对目标方法结果的缓存，在缓存结果有效期内，新的调用并不会去执行目标方法，而是直接拿缓存结果。并且用户可以自定义缓存的key（从入参中选取一部分参数，或者是某个对象中的某些属性来作为缓存的key）。

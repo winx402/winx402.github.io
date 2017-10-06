@@ -4,6 +4,7 @@ title: 左旋转字符串
 date: 2017/03/06
 tags: [tech, arithmetic, index]
 original: true
+tag: [[算法, arithmetic]]
 ---
 
 ## 题目要求：

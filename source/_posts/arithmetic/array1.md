@@ -4,6 +4,7 @@ title: 等分数组
 date: 2017/04/16
 tags: [tech, arithmetic, index]
 original: true
+tag: [[算法, arithmetic]]
 ---
 
 ## 题目要求：

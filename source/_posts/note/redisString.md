@@ -3,6 +3,7 @@ layout: post
 title: redis字符串数据结构
 date: 2017/07/05
 tags: [tech, note, index, redis]
+tag: [[redis, redis]]
 ---
 
 ##### redis是基于C语言的，但是redis没有直接使用C语言的传统字符串，而是自己构建了一种简单动态字符串的抽象类型。简称SDS；

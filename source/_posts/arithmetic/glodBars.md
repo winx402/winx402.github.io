@@ -4,6 +4,7 @@ title: 切金条
 date: 2017/02/23
 tags: [tech, arithmetic, index]
 original: true
+tag: [[算法, arithmetic]]
 ---
 
 ## 题目要求：

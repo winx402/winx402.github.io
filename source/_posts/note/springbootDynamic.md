@@ -1,9 +1,11 @@
 ---
 layout: post
 title: spring boot 动态启动与加载
-date: 2017/09/01
-tags: [tech, note, index, spring]
+date: 3000/01/01
+showDate: 2017/09/01
+tags: [tech, note, index, spring, java]
 original: true
+tag: [[spring, spring],[java, java]]
 ---
 
 ##### 　　通常情况下，我们通过XML或者Annotation两种方式配置Bean Definition。从Spring 3.0开始，增加了一种新的途径来配置Bean Definition，这就是通过Java Code配置Bean Definition。

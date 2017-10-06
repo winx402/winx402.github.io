@@ -3,8 +3,9 @@ layout: post
 title: Aop
 date: 2017/06/04
 original: true
-tags: [tech, river, index]
+tags: [tech, river, index, java]
 color: '#E30D23'
+tag: [[river, river]]
 ---
 
 ##### 　　aop是一个比较典型的例子，aop实现在目标方法之前、之后、异常等情况下的代码插入。这些插入的代码可以做类似于日志记录，流量统计等工作。也可以在before代码中修改目标方法参数，在after中修改目标方法返回值。但是没有办法控制目标方法是否继续（除非抛出异常）。

@@ -13,11 +13,22 @@
                 </p>
             </div>
             <div class="meta">
-                <i class="fa fa-sun-o">&nbsp;<%- date(post.date, 'YYYY-MM-DD') %></i>
+                <% if (post.showDate != null && post.showDate != ""){ %>
+                    <i class="fa fa-arrow-up">&nbsp;置顶</i>
+                <% }%>
+                <i class="fa fa-sun-o">&nbsp;<%- partial("_widget/date", {post: post}) %></i>
                 <% if (post.original){ %>
                     <i class="fa fa-flag-o">&nbsp;原创</i>
                 <% }%>
+                <% if (post.tag != null && post.tag != "" && post.tag.length > 0){ %>
+                    <i class="fa fa-tags">&nbsp;[
+                        <% post.tag.forEach(function (one) { %>
+                            <a href="/tags/<%- one[1] %>/"><%- one[0] %></a>
+                        <% }) %>]
+                    </i>
+                <% }%>
             </div>
+
         </article>
         <% }) %>
     </section>
