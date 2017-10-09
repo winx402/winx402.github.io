@@ -175,7 +175,7 @@ public void addAdditionalTomcatConnectors(Connector... connectors) {
 }
 ```
 
-##### 　　顿时觉得坑爹的add啊，之后在Bean Definition的私有属性设置，以及通过方法设置属性值得方向去尝试解决问题，没有任何效果。几乎快要绝望的时候，突然灵机一动，为什么我不能自己定义一个不需要后置设置属性的`TomcatEmbeddedServletContainerFactory`呢，于是有了下面的代码：
+##### 　　顿时觉得坑爹的add啊，之后在Bean Definition的私有属性设置，以及通过方法设置属性值的方向去尝试解决问题，没有任何效果。几乎快要绝望的时候，突然灵机一动，为什么我不能自己定义一个不需要后置设置属性的`TomcatEmbeddedServletContainerFactory`呢，于是有了下面的代码：
 
 ```java
 @Configuration
