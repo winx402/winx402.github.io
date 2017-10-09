@@ -1,6 +1,6 @@
 <% if (page.type == "resume"){ %>
   <%- partial('_partial/resume', {post: page}) %>
 <% }else{ %>
-  <%- partial("_partial/title",{title: page.title, other:date(post.date, 'YYYY/MM/DD'), url:page.img,color: page.color}) %>
+  <%- partial("_partial/title",{title: page.title, other:date(page.date, 'YYYY/MM/DD'), url:page.img,color: page.color}) %>
   <%- partial('_partial/article', {post: page}) %>
 <% } %>
