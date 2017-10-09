@@ -13,10 +13,10 @@
                 </p>
             </div>
             <div class="meta">
-                <% if (post.showDate != null && post.showDate != ""){ %>
+                <% if (post.top != null && post.top != "" && (post.topTag == null || post.topTag.length == 0 || post.topTag.indexOf(thisTag) != -1)){ %>
                     <i class="fa fa-arrow-up">&nbsp;置顶</i>
                 <% }%>
-                <i class="fa fa-sun-o">&nbsp;<%- partial("_widget/date", {post: post}) %></i>
+                <i class="fa fa-sun-o">&nbsp;<%- date(post.date, 'YYYY/MM/DD') %></i>
                 <% if (post.original){ %>
                     <i class="fa fa-flag-o">&nbsp;原创</i>
                 <% }%>

@@ -13,4 +13,4 @@
 <% }else{ %>
   <%- partial("_partial/title",{title: config.title, other: "",url:"",color: ""}) %>
 <% } %>
-<%- partial('_partial/posts', {posts: page.posts}) %>
+<%- partial('_partial/posts', {posts: page.posts, thisTag: page.tag}) %>
