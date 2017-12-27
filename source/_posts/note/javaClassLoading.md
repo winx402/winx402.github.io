@@ -58,6 +58,8 @@ public void gotoWork() {
 ### 卸载
 ##### 对象被jvm回收。
 
+#### 示例
+
 ```java
 public class InitDemo {
 
