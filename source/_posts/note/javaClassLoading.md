@@ -2,7 +2,7 @@
 layout: post
 title: java类加载过程
 date: 2017/12/26
-tags: [tech, note, index, redis]
+tags: [tech, index]
 tag: [[java, java]]
 ---
 

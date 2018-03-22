@@ -2,7 +2,7 @@
 layout: post
 title: redis字符串数据结构
 date: 2017/07/05
-tags: [tech, note, index, redis]
+tags: [tech, index, redis]
 tag: [[redis, redis]]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: 密钥和数字证书
 date: 2017/09/01
-tags: [tech, note, index, network]
+tags: [tech, index, network]
 ---
 
 ##### 最近因为项目要求，需要在本地环境为项目部署https服务。之前对https的密钥和证书过程都不是很清楚，所以最近恶补了一些基础知识。这是一篇对数字证书很形象的解释，所以决定记录下来，加深记忆。

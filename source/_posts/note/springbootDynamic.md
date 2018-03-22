@@ -2,7 +2,7 @@
 layout: post
 title: spring boot 动态启动与加载
 date: 2017/08/31
-tags: [tech, note, index, spring, java]
+tags: [tech, index, spring, java]
 original: true
 tag: [[spring, spring],[java, java]]
 top: 1

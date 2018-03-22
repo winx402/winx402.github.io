@@ -3,7 +3,7 @@ layout: post
 title: ThreadLocal源码解析
 date: 2017/03/09
 original: true
-tags: [tech, note, index, java]
+tags: [tech, index, java]
 tag: [[java, java]]
 ---
 

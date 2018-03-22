@@ -2,7 +2,7 @@
 layout: post
 title: vim快捷键笔记
 date: 2016/10/14
-tags: [tech, note, index]
+tags: [tech, index]
 ---
 
 ## 一. 移动光标
