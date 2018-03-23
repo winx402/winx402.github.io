@@ -394,7 +394,7 @@ a {
 }
 
 .post .con ul {
-    margin: 4px 24px;
+    margin: 4px 30px;
 }
 
 .post .con li {
@@ -409,7 +409,7 @@ a {
 .post .con ol li {
     list-style: decimal outside;
     font-weight: 400;
-    margin-left: 24px;
+    margin-left: 30px;
     font-size: 14px;
 }
 

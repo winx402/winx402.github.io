@@ -482,6 +482,7 @@ public class StubProxyFactoryWrapper implements ProxyFactory {
 ##### jdk和javassist的实现的区别就在于是jdk提供的字节码功能还是通过javassist来自定义类。本质上来说原理是一样的。整个的流程就像前面提到的
 1. 拿到**实际执行对象**，通过该对象去创建Invoker
 2. 通过Invoker再去创建代理对象
+
 ##### 但是其中有一些问题需要去思考：
 1. 这个代理的流程是从哪里发起的
 2. 如果是消费端，只有服务的接口，没有实际执行的对象。那么这个代理是如何产生的；
