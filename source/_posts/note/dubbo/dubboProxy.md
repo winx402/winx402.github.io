@@ -360,6 +360,129 @@ public static Proxy getProxy(ClassLoader cl, Class<?>... ics) {
     }
 ```
 
-##### 该方法通过ClassLoader和Class接口生成一个Proxy类（注意是Proxy类，而不是之前的getProxy的泛型T类，实际上该Proxy就是该方法所处的类） 代码比较长，说下它的实现过程：
+##### 该方法通过ClassLoader和Class接口生成一个Proxy类（注意是Proxy类，而不是之前的getProxy的泛型T类，实际上该Proxy就是该方法所处的类） 代码比较长，以下它的实现过程：
 1. 遍历所有入参接口，以;分割连接起来，以它为key以map为缓存查找如果有，说明代理对象已创建返回
-2.
+2. 利用AtomicLong对象自增获取一个long数组来作为生产类的后缀，防止冲突
+3. 遍历接口获取所有定义的方法
+    1. 将方法签名解析成字符串，加入到一个集合Set<String> worked中 ，用来判重
+    2. 获取方法应该在methods数组中的索引下标ix
+    3. 获取方法的参数类型以及返回类型
+    4. 构建方法体return ret= handler.invoke(this, methods[ix], args);这里的方法调用其实是委托给InvokerInvocationHandler实例对象的，去调用真正的实例
+    5. 方法加入到methods数组中；将字符串构建的方法加入到代理类中
+4. 创建代理实例对象ProxyInstance
+    1. 类名为  pkg + “.poxy”+id = 包名 + “.poxy” +自增数值
+    2. 添加静态字段Method[] methods; 保存了该代理类代理的所有方法。在代理方法体中直接通过数组下表ix来获取方法
+    3. 添加实例对象InvocationHandler handler；代理实际上就是将方法的的执行给了handler。该handler的实现和jdk中的handler是同一个。
+    4. 创建构造函数，构造函数的参数就是上面的InvocationHandler
+    5. 添加默认构造函数
+    6. 利用工具类ClassGenerator生成对应的字节码
+5. 创建代理对象，它的newInstance(handler)方法用来创建基于我们接口的代理
+    1. 代理对象名Proxy + id
+    2. 添加默认构造器
+    3. 实现方法newInstance代码，return new pcn(hadler) 这里pcn就是前面生成的代理对象类名
+    4. 利用工具类ClassGenerator生成字节码并实例化对象返回
+
+##### 通过**Proxy.getProxy(interfaces)**创建了代理类之后，再调用newInstance方法，通过InvokerInvocationHandler和Invoker创建了代理实例；
+
+### getInvoker
+```java
+public <T> Invoker<T> getInvoker(T proxy, Class<T> type, URL url) {
+        final Wrapper wrapper = Wrapper.getWrapper(proxy.getClass().getName().indexOf('$') < 0 ? proxy.getClass() : type);
+        return new AbstractProxyInvoker<T>(proxy, type, url) {
+            @Override
+            protected Object doInvoke(T proxy, String methodName,
+                                      Class<?>[] parameterTypes,
+                                      Object[] arguments) throws Throwable {
+                return wrapper.invokeMethod(proxy, methodName, parameterTypes, arguments);
+            }
+        };
+    }
+```
+
+##### 实现过程如下：
+1. 根据传入的 proxy对象的类信息创建对它的包装对象Wrapper,这里同样是通过javassist生成字节码创建的。详细的过程就不介绍了，和上面的过程很类似
+2. 返回AbstractProxyInvoker对象实例，这个invoker对象invoke方法可以根据传入的invocation对象中包含的方法名，方法参数来调用wrapper对象返回调用结果
+
+## StubProxyFactoryWrapper
+```java
+public class StubProxyFactoryWrapper implements ProxyFactory {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(StubProxyFactoryWrapper.class);
+
+    private final ProxyFactory proxyFactory;
+
+    private Protocol protocol;
+
+    public StubProxyFactoryWrapper(ProxyFactory proxyFactory) {
+        this.proxyFactory = proxyFactory;
+    }
+
+    public void setProtocol(Protocol protocol) {
+        this.protocol = protocol;
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public <T> T getProxy(Invoker<T> invoker) throws RpcException {
+        T proxy = proxyFactory.getProxy(invoker);
+        if (GenericService.class != invoker.getInterface()) {
+            String stub = invoker.getUrl().getParameter(Constants.STUB_KEY, invoker.getUrl().getParameter(Constants.LOCAL_KEY));
+            if (ConfigUtils.isNotEmpty(stub)) {
+                Class<?> serviceType = invoker.getInterface();
+                if (ConfigUtils.isDefault(stub)) {
+                    if (invoker.getUrl().hasParameter(Constants.STUB_KEY)) {
+                        stub = serviceType.getName() + "Stub";
+                    } else {
+                        stub = serviceType.getName() + "Local";
+                    }
+                }
+                try {
+                    Class<?> stubClass = ReflectUtils.forName(stub);
+                    if (!serviceType.isAssignableFrom(stubClass)) {
+                        throw new IllegalStateException("The stub implementation class " + stubClass.getName() + " not implement interface " + serviceType.getName());
+                    }
+                    try {
+                        Constructor<?> constructor = ReflectUtils.findConstructor(stubClass, serviceType);
+                        proxy = (T) constructor.newInstance(new Object[]{proxy});
+                        //export stub service
+                        URL url = invoker.getUrl();
+                        if (url.getParameter(Constants.STUB_EVENT_KEY, Constants.DEFAULT_STUB_EVENT)) {
+                            url = url.addParameter(Constants.STUB_EVENT_METHODS_KEY, StringUtils.join(Wrapper.getWrapper(proxy.getClass()).getDeclaredMethodNames(), ","));
+                            url = url.addParameter(Constants.IS_SERVER_KEY, Boolean.FALSE.toString());
+                            try {
+                                export(proxy, (Class) invoker.getInterface(), url);
+                            } catch (Exception e) {
+                                LOGGER.error("export a stub service error.", e);
+                            }
+                        }
+                    } catch (NoSuchMethodException e) {
+                        throw new IllegalStateException("No such constructor \"public " + stubClass.getSimpleName() + "(" + serviceType.getName() + ")\" in stub implementation class " + stubClass.getName(), e);
+                    }
+                } catch (Throwable t) {
+                    LOGGER.error("Failed to create stub implementation class " + stub + " in consumer " + NetUtils.getLocalHost() + " use dubbo version " + Version.getVersion() + ", cause: " + t.getMessage(), t);
+                    // ignore
+                }
+            }
+        }
+        return proxy;
+    }
+
+    public <T> Invoker<T> getInvoker(T proxy, Class<T> type, URL url) throws RpcException {
+        return proxyFactory.getInvoker(proxy, type, url);
+    }
+
+    private <T> Exporter<T> export(T instance, Class<T> type, URL url) {
+        return protocol.export(proxyFactory.getInvoker(instance, type, url));
+    }
+
+}
+```
+##### StubProxyFactoryWrapper实现了对代理工厂进行装饰的功能，主要用于暴露服务提供者的本地服务给远端消费者来调用
+
+## 总结
+##### jdk和javassist的实现的区别就在于是jdk提供的字节码功能还是通过javassist来自定义类。本质上来说原理是一样的。整个的流程就像前面提到的
+1. 拿到**实际执行对象**，通过该对象去创建Invoker
+2. 通过Invoker再去创建代理对象
+##### 但是其中有一些问题需要去思考：
+1. 这个代理的流程是从哪里发起的
+2. 如果是消费端，只有服务的接口，没有实际执行的对象。那么这个代理是如何产生的；
+3. 为什么javassist的getInvoker中，还需要实现wrapper类
