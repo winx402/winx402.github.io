@@ -2,7 +2,6 @@
 layout: post
 title: ThreadPoolExecutor源码阅读
 date: 2018/01/05
-<!-- tags: [tech, index] -->
 original: true
 tag: [[java, java]]
 ---
