@@ -4,6 +4,7 @@ title: dubbo概述
 date: 2018/03/22
 tags: [tech, index, dubbo]
 tag: [[java, java], [dubbo, dubbo]]
+original: true
 ---
 
 ##### 　　从这篇文章开始，我将对dubbo的源码进行阅读与分析。网络上对于dubbo的架构已经整体的设计原理已经有非常多的文章了，这里推荐一下[dubbo官方技术文档](http://dubbo.io/books/dubbo-dev-book/)。这些文档已经对dubbo的整体架构和扩展机制做了详细的说明。这在我后面的系列文章中将不会再有这部分介绍。但是该文档只是指出了dubbo的众多扩展点的接口以及简单说明，并没有对接口做详细的代码实现分析。所以我将尝试阅读并分享基于这些扩展点的代码实现过程。
@@ -47,6 +48,6 @@ tag: [[java, java], [dubbo, dubbo]]
 * dubbo的整体实现细节，加载入口，服务以及通讯细节：[dubbo实现细节](http://dubbo.io/books/dubbo-dev-book/implementation.html)
 
 ##### 其实作为rpc远程调用本身来说，实现是很简单的，只是dubbo在这之上构建了一套完整的基于服务的整体架构，这也是dubbo的魅力所在，那么我后面也将对这些服务做一些详细实现分析：
-#### [dubbo-动态代理实现](https://winx402.github.io/note/dubbo/dubboProxy/)
-#### [dubbo-负载均衡实现](https://winx402.github.io/note/dubbo/dubboLoadBalance/)
-#### [本系列dubbo源码分析](https://winx402.github.io/tags/dubbo/)
+##### [dubbo-动态代理实现](https://winx402.github.io/note/dubbo/dubboProxy/)
+##### [dubbo-负载均衡实现](https://winx402.github.io/note/dubbo/dubboLoadBalance/)
+##### [本系列dubbo源码分析](https://winx402.github.io/tags/dubbo/)

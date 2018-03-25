@@ -4,6 +4,7 @@ title: dubbo-负载均衡实现
 date: 2018/03/23
 tags: [tech, index, dubbo]
 tag: [[java, java], [dubbo, dubbo]]
+original: true
 ---
 
 ### 扩展说明
@@ -167,7 +168,7 @@ protected <T> Invoker<T> doSelect(List<Invoker<T>> invokers, URL url, Invocation
     }
 ```
 
-##### 可以看到dubbo的轮询不是完全按照次数轮询的。而是按照公约后的权重设置轮询比率，即权重轮询算法(Weighted Round-Robin) ，它是基于轮询算法改进而来的。具体算法原理可以再网上搜索`权重轮询调度算法`。
+##### 可以看到dubbo的轮询不是完全按照次数轮询的。而是按照公约后的权重设置轮询比率，即权重轮询算法(Weighted Round-Robin) ，它是基于轮询算法改进而来的。具体算法原理可以再网上搜索`权重轮询调度算法`或者见博客[dubbo-动态代理实现](http://localhost:4000/arithmetic/roundrobinWeight/)。
 
 ## leastactive 最小活跃数
 ```java
