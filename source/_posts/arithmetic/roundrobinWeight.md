@@ -3,7 +3,6 @@ layout: post
 title: 加权轮询算法
 date: 2018/03/25
 tags: [tech, arithmetic, index]
-original: true
 tag: [[算法, arithmetic]]
 ---
 
