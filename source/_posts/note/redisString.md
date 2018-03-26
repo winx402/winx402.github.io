@@ -24,7 +24,7 @@ struct sdshdr{
 }
 ```
 ##### SDS结构实例：
-![SDS实例](../../img/note/redisString.png) <div class='img-note'>SDS实例</div>
+![SDS实例](/img/note/redisString.png) <div class='img-note'>SDS实例</div>
 
 1. free属性的值为0，表示SDS没有未使用空间。
 2. len的属性值为5，表示这个SDS保存了一个5字节长的字符串。

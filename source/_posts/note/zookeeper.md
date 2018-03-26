@@ -11,10 +11,10 @@ tags: [tech, index]
 ### 1.1 角色
 
 ##### Zookeeper中的角色主要有以下三类，如下表所示：
-![zookeeper角色](../../img/zookeeper/role.jpg)
+![zookeeper角色](/img/zookeeper/role.jpg)
 
 ##### 系统模型如图所示：
-![zookeeper系统模型](../../img/zookeeper/zookeeperModel.jpg)
+![zookeeper系统模型](/img/zookeeper/zookeeperModel.jpg)
 
 
 ### 1.2 设计目的
@@ -45,10 +45,10 @@ tags: [tech, index]
 
 ##### 通过流程分析我们可以得出：要使Leader获得多数Server的支持，则Server总数必须是奇数2n+1，且存活的Server的数目不得少于n+1.
 ##### 每个Server启动后都会重复以上流程。在恢复模式下，如果是刚从崩溃状态恢复的或者刚启动的server还会从磁盘快照中恢复数据和会话信息，zk会记录事务日志并定期进行快照，方便在恢复时进行状态恢复。选主的具体流程图如下所示：
-![zookeeper流程图](../../img/zookeeper/zookeeperLc.jpg)
+![zookeeper流程图](/img/zookeeper/zookeeperLc.jpg)
 
 ##### fast paxos流程是在选举过程中，某Server首先向所有Server提议自己要成为leader，当其它Server收到提议以后，解决epoch和zxid的冲突，并接受对方的提议，然后向对方发送接受提议完成的消息，重复这个流程，最后一定能选举出Leader。其流程图如下所示：
-![zookeeper流程图](../../img/zookeeper/zookeeperLc2.jpg)
+![zookeeper流程图](/img/zookeeper/zookeeperLc2.jpg)
 
 ### 2.2 同步流程
 ##### 选完leader以后，zk就进入状态同步过程。
@@ -59,7 +59,7 @@ tags: [tech, index]
 5. Follower收到uptodate消息后，又可以重新接受client的请求进行服务了。
 
 ##### 流程图如下所示：
-![zookeeper流程图](../../img/zookeeper/zookeeperLc3.jpg)
+![zookeeper流程图](/img/zookeeper/zookeeperLc3.jpg)
 
 ### 2.3 工作流程
 #### 2.3.1 Leader工作流程
@@ -70,7 +70,7 @@ tags: [tech, index]
 
 ##### PING消息是指Learner的心跳信息；REQUEST消息是Follower发送的提议信息，包括写请求及同步请求；ACK消息是Follower的对提议的回复，超过半数的Follower通过，则commit该提议；REVALIDATE消息是用来延长SESSION有效时间。
 ##### Leader的工作流程简图如下所示，在实际实现中，流程要比下图复杂得多，启动了三个线程来实现功能。
-![zookeeper流程图](../../img/zookeeper/zookeeperLc4.jpg)
+![zookeeper流程图](/img/zookeeper/zookeeperLc4.jpg)
 
 #### 2.3.2 Follower工作流程
 ##### Follower主要有四个功能：
@@ -88,7 +88,7 @@ tags: [tech, index]
 6. SYNC消息：返回SYNC结果到客户端，这个消息最初由客户端发起，用来强制得到最新的更新。
 
 ##### Follower的工作流程简图如下所示，在实际实现中，Follower是通过5个线程来实现功能的。
-![zookeeper流程图](../../img/zookeeper/zookeeperLc5.jpg)
+![zookeeper流程图](/img/zookeeper/zookeeperLc5.jpg)
 
 ##### 对于observer的流程不再叙述，observer流程和Follower的唯一不同的地方就是observer不会参加leader发起的投票。
 ##### 主流应用场景：
@@ -98,14 +98,14 @@ tags: [tech, index]
 ##### 集中式的配置管理在应用集群中是非常常见的，一般商业公司内部都会实现一套集中的配置管理中心，应对不同的应用集群对于共享各自配置的需求，并且在配置变更时能够通知到集群中的每一个机器。
 ##### Zookeeper很容易实现这种集中式的配置管理，比如将APP1的所有配置配置到/APP1 znode下，APP1所有机器一启动就对/APP1这个节点进行监控(zk.exist("/APP1",true)),并且实现回调方法Watcher，那么在zookeeper上/APP1 znode节点下数据发生变化的时候，每个机器都会收到通知，Watcher方法将会被执行，那么应用再取下数据即可(zk.getData("/APP1",false,null));
 ##### 以上这个例子只是简单的粗颗粒度配置监控，细颗粒度的数据可以进行分层级监控，这一切都是可以设计和控制的。     
-![zookeeper流程图](../../img/zookeeper/zookeeper1.jpg)
+![zookeeper流程图](/img/zookeeper/zookeeper1.jpg)
 
 #### (2)集群管理 
 ##### 应用集群中，我们常常需要让每一个机器知道集群中（或依赖的其他某一个集群）哪些机器是活着的，并且在集群机器因为宕机，网络断链等原因能够不在人工介入的情况下迅速通知到每一个机器。
 ##### Zookeeper同样很容易实现这个功能，比如我在zookeeper服务器端有一个znode叫/APP1SERVERS,那么集群中每一个机器启动的时候都去这个节点下创建一个EPHEMERAL类型的节点，比如server1创建/APP1SERVERS/SERVER1(可以使用ip,保证不重复)，server2创建/APP1SERVERS/SERVER2，然后SERVER1和SERVER2都watch /APP1SERVERS这个父节点，那么也就是这个父节点下数据或者子节点变化都会通知对该节点进行watch的客户端。因为EPHEMERAL类型节点有一个很重要的特性，就是客户端和服务器端连接断掉或者session过期就会使节点消失，那么在某一个机器挂掉或者断链的时候，其对应的节点就会消失，然后集群中所有对/APP1SERVERS进行watch的客户端都会收到通知，然后取得最新列表即可。
 ##### 另外有一个应用场景就是集群选master,一旦master挂掉能够马上能从slave中选出一个master,实现步骤和前者一样，只是机器在启动的时候在APP1SERVERS创建的节点类型变为EPHEMERAL_SEQUENTIAL类型，这样每个节点会自动被编号
 ##### 我们默认规定编号最小的为master,所以当我们对/APP1SERVERS节点做监控的时候，得到服务器列表，只要所有集群机器逻辑认为最小编号节点为master，那么master就被选出，而这个master宕机的时候，相应的znode会消失，然后新的服务器列表就被推送到客户端，然后每个节点逻辑认为最小编号节点为master，这样就做到动态master选举。
-![zookeeper流程图](../../img/zookeeper/zookeeper2.jpg)
+![zookeeper流程图](/img/zookeeper/zookeeper2.jpg)
 
 #### Zookeeper 监视（Watches） 简介
 ##### Zookeeper C API 的声明和描述在 include/zookeeper.h 中可以找到，另外大部分的 Zookeeper C API 常量、结构体声明也在 zookeeper.h 中，如果如果你在使用 C API 是遇到不明白的地方，最好看看 zookeeper.h，或者自己使用 doxygen 生成 Zookeeper C API 的帮助文档。

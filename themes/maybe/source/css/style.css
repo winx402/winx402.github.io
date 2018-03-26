@@ -353,14 +353,14 @@ a {
 }
 
 .post h1 {
-    padding: 0 0 16px 0;
+    padding: 16px 0 16px 0;
     color: #5D245F;
     font-weight: 700;
     font-size: 30px;
 }
 
 .post h2 {
-    padding: 5px 0 12px 0;
+    padding: 12px 0 12px 0;
     color: #94003D;
     font-weight: 700;
     font-size: 26px;
@@ -374,7 +374,7 @@ a {
 }
 
 .post h4 {
-    padding: 2px 0 6px 0;
+    padding: 10px 0 8px 0;
     color: #222;
     font-size: 18px;
     font-weight: 900;

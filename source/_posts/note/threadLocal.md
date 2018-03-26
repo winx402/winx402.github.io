@@ -257,7 +257,7 @@ static class ThreadLocalMap {
 ```
 
 ##### 下图是本文介绍到的一些对象之间的引用关系图，实线表示强引用，虚线表示弱引用：
-![ThreadLocal](../../img/note/ThreadLocal.png) <div class='img-note'>ThreadLocal对象引用</div>
+![ThreadLocal](/img/note/ThreadLocal.png) <div class='img-note'>ThreadLocal对象引用</div>
 
 ##### 如上图，ThreadLocalMap使用ThreadLocal的弱引用作为key，如果一个ThreadLocal没有外部强引用引用他，那么系统gc的时候，这个ThreadLocal势必会被回收，这样一来，ThreadLocalMap中就会出现key为null的Entry，就没有办法访问这些key为null的Entry的value，如果当前线程再迟迟不结束的话，这些key为null的Entry的value就会一直存在一条强引用链：
 #### Thread Ref -> Thread -> ThreaLocalMap -> Entry -> value
