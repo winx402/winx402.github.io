@@ -102,4 +102,4 @@ http {
 * 7个请求中，a、b、c被选取的顺序为a, b,a, c, a, b, a，分布均匀，权重大的后端a没有被连续选取。
 * 每经过7个请求后，a、b、c的current_weight又回到初始值{0, 0,0}，因此上述流程是不断循环的。
 
-##### 转载自：https://blog.csdn.net/gqtcgq/article/details/52076997
+##### 转载自：[https://blog.csdn.net/gqtcgq/article/details/52076997](https://blog.csdn.net/gqtcgq/article/details/52076997)
