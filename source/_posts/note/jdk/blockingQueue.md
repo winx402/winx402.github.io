@@ -139,7 +139,6 @@ public E take() throws InterruptedException {
 * ArrayBlockingQueue
 * DelayQueue
 * LinkedBlockingQueue
-* PriorityBlockingQueue
 * SynchronousQueue
 
 ##### 他们有什么区别呢。下面我们将通过源码来具体分析他们的实现过程。
@@ -570,32 +569,28 @@ public LinkedBlockingQueue(Collection<? extends E> c) {
 ### put
 ```java
 public void put(E e) throws InterruptedException {
-        if (e == null) throw new NullPointerException();
+        if (e == null) throw new NullPointerException(); //不允许插入空值
         int c = -1;
-        Node<E> node = new Node<E>(e);
+        Node<E> node = new Node<E>(e); //构建新的节点
         final ReentrantLock putLock = this.putLock;
         final AtomicInteger count = this.count;
-        putLock.lockInterruptibly();
+        putLock.lockInterruptibly(); //可中断锁
         try {
-            /*
-             * Note that count is used in wait guard even though it is
-             * not protected by lock. This works because count can
-             * only decrease at this point (all other puts are shut
-             * out by lock), and we (or some other waiting put) are
-             * signalled if it ever changes from capacity. Similarly
-             * for all other uses of count in other wait guards.
-             */
             while (count.get() == capacity) {
-                notFull.await();
+                notFull.await(); //如果队列满，则一直阻塞
             }
-            enqueue(node);
+            enqueue(node); //如果操作
             c = count.getAndIncrement();
             if (c + 1 < capacity)
-                notFull.signal();
+                notFull.signal(); //判断这次操作后队列没有满，则唤醒其他入队请求线程
         } finally {
-            putLock.unlock();
+            putLock.unlock(); //解锁
         }
         if (c == 0)
-            signalNotEmpty();
+            signalNotEmpty(); //如果本次操作之前队列为空，则在本次操作之后队列不为空了，所以这里需要唤醒获取节点的线程
     }
 ```
+
+##### 通过**put**方法看到**LinkedBlockingQueue**的操作和**ArrayBlockingQueue**的操作都大同小异，主要是通过**ReentrantLock**来控制线程安全，以及通过**Condition**实现条件阻塞。他们之间主要的不同点就在于他们存储数据的数据结构。
+
+## SynchronousQueue
