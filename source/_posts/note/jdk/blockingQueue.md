@@ -592,5 +592,3 @@ public void put(E e) throws InterruptedException {
 ```
 
 ##### 通过**put**方法看到**LinkedBlockingQueue**的操作和**ArrayBlockingQueue**的操作都大同小异，主要是通过**ReentrantLock**来控制线程安全，以及通过**Condition**实现条件阻塞。他们之间主要的不同点就在于他们存储数据的数据结构。
-
-## SynchronousQueue
