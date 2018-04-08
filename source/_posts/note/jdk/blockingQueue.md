@@ -220,7 +220,7 @@ public ArrayBlockingQueue(int capacity, boolean fair,
 
 ##### 可以看到ArrayBlockingQueue的初始化可以有三个参数：
 1. **capacity（容量）**：三个构造函数都需要的变量，也就是ArrayBlockingQueue的初始容量。
-2. **fair（是否公平）**：缺省默认为非公平，这里的公平与非公平主要体现在锁的获取上，ArrayBlockingQueue会更具这个参数来创建公平锁或者非公平锁
+2. **fair（是否公平）**：缺省默认为非公平，这里的公平与非公平主要体现在锁的获取上，ArrayBlockingQueue会根据这个参数来创建公平锁或者非公平锁
 3. **c（集合）**：初始集合数据，即使有这个参数，ArrayBlockingQueue依然会按照capacity的大小来初始化数组大小，即使c的容量可能会超过capacity。如果c的容量大于capacity大小。构造函数中会捕获该异常**ArrayIndexOutOfBoundsException**，并抛出一个新的**IllegalArgumentException**异常。
 
 ##### 这是**ArrayBlockingQueue**的主要特点，那么我们来看看ArrayBlockingQueue是如何来操作数据添加和删除数据的
