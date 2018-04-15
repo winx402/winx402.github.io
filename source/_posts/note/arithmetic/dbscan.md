@@ -94,3 +94,7 @@ if __name__ == '__main__':
 1. 如果样本集的密度不均匀、聚类间距差相差很大时，聚类质量较差，这时用DBSCAN聚类一般不适合。
 2. 如果样本集较大时，聚类收敛时间较长，此时可以对搜索最近邻时建立的KD树或者球树进行规模限制来改进。
 3. 调参相对于传统的K-Means之类的聚类算法稍复杂，主要需要对距离阈值Eps，邻域样本数阈值MinPts联合调参，不同的参数组合对最后的聚类效果有较大影响。
+
+### 参考文章：
+[https://www.cnblogs.com/pinard/p/6208966.html](https://www.cnblogs.com/pinard/p/6208966.html)
+[https://blog.csdn.net/u013611461/article/details/53639835](https://blog.csdn.net/u013611461/article/details/53639835)
