@@ -12,7 +12,7 @@ tag: [[算法, arithmetic]]
 ##### 要求不能创建任何新的结点，只调整指针的指向。
 <!--more-->
 #### 举个例子
-![二元查找树](../../img/arithmetic/BinaryTree.png)
+![二元查找树](/img/arithmetic/BinaryTree.png)
 ##### 转换成双向链表
 ##### 4=6=8=10=12=14=16
 #### 首先我们定义的二元查找树 节点的数据结构如下：

@@ -7,7 +7,7 @@ tag: [[java, java], [dubbo, dubbo]]
 original: true
 ---
 
-##### 　　动态代理对于dubbo来说不是必须的，没有代理实现，dubbo一样可以运行。但是dubbo的一个重要的特点就是调用远程服务就像调用本地服务一样的方便。这其中对于其调用过程的隐藏就是通过动态代理来实现的。动态代理本身就就不详细介绍了，可以参考之前的一篇文章：[java动态代理实现](https://winx402.github.io/note/javaDynamicProxy/)
+##### 动态代理对于dubbo来说不是必须的，没有代理实现，dubbo一样可以运行。但是dubbo的一个重要的特点就是调用远程服务就像调用本地服务一样的方便。这其中对于其调用过程的隐藏就是通过动态代理来实现的。动态代理本身就就不详细介绍了，可以参考之前的一篇文章：[java动态代理实现](https://winx402.github.io/note/javaDynamicProxy/)
 
 <!--more-->
 

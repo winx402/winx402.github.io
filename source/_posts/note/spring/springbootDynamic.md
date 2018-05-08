@@ -9,13 +9,13 @@ top: 1
 topTag: [index]
 ---
 
-##### 　　通常情况下，我们通过XML或者Annotation两种方式配置Bean Definition。从Spring 3.0开始，增加了一种新的途径来配置Bean Definition，这就是通过Java Code配置Bean Definition。
+##### 通常情况下，我们通过XML或者Annotation两种方式配置Bean Definition。从Spring 3.0开始，增加了一种新的途径来配置Bean Definition，这就是通过Java Code配置Bean Definition。
 <!--more-->
 
 #### Java Code配置与XML和Annotation两种配置方式不同点在于：
-##### 　　前两种方式XML和Annotation的配置方式为预定义方式，即开发人员通过XML文件或者Annotation预定义配置Bean的各种属性后，启动Spring容器，Spring容器会首先解析这些配置属性，生成对应的Bean Definition,装入到`DefaultListtableBeanFactory`对象的属性容器中，以此同时，Spring框架也会定义内部使用的Bean定义，如Bean名为：`org.springframework.context.annotation.internalConfigurationAnnotationProcessor`的 `ConfigurationClassPostProcessor` 定义。而后此刻不会做任何Bean Definition的解析动作，Spring框架会根据前两种配置，过滤出`BeanDefinitionRegistryPostProcessor` 类型的Bean定义，并通过Spring框架生成对应的Bean对象（如 `ConfigurationClassPostProcessor` 实例）。结合 Spring 上下文源码可知这个对象是一个 processor 类型工具类，<u>Spring容器会在实例化开发人员所定义的 Bean 前先调用该 processor 的 postProcessBeanDefinitionRegistry(…) 方法。此处实现基于 Java Code 配置Bean Definition的处理</u>。
+##### 前两种方式XML和Annotation的配置方式为预定义方式，即开发人员通过XML文件或者Annotation预定义配置Bean的各种属性后，启动Spring容器，Spring容器会首先解析这些配置属性，生成对应的Bean Definition,装入到`DefaultListtableBeanFactory`对象的属性容器中，以此同时，Spring框架也会定义内部使用的Bean定义，如Bean名为：`org.springframework.context.annotation.internalConfigurationAnnotationProcessor`的 `ConfigurationClassPostProcessor` 定义。而后此刻不会做任何Bean Definition的解析动作，Spring框架会根据前两种配置，过滤出`BeanDefinitionRegistryPostProcessor` 类型的Bean定义，并通过Spring框架生成对应的Bean对象（如 `ConfigurationClassPostProcessor` 实例）。结合 Spring 上下文源码可知这个对象是一个 processor 类型工具类，<u>Spring容器会在实例化开发人员所定义的 Bean 前先调用该 processor 的 postProcessBeanDefinitionRegistry(…) 方法。此处实现基于 Java Code 配置Bean Definition的处理</u>。
 
-##### 　　基于 Java Code 的配置方式，其执行原理不同于前两种。它是在 Spring 框架已经解析了基于 XML 和 Annotation 配置后，通过加入 BeanDefinitionRegistryPostProcessor 类型的 processor 来处理配置信息，让开发人员通过 Java 编程方式定义一个 Java 对象。其优点在于可以将配置信息集中在一定数量的 Java 对象中，同时通过 Java 编程方式，比基于 Annotation 方式具有更高的灵活性。并且该配置方式给开发人员提供了一种非常好的范例来增加用户自定义的解析工具类。其主要缺点在于与 Java 代码结合紧密，配置信息的改变需要重新编译 Java 代码，另外这是一种新引入的解析方式，需要一定的学习成本。
+##### 基于 Java Code 的配置方式，其执行原理不同于前两种。它是在 Spring 框架已经解析了基于 XML 和 Annotation 配置后，通过加入 BeanDefinitionRegistryPostProcessor 类型的 processor 来处理配置信息，让开发人员通过 Java 编程方式定义一个 Java 对象。其优点在于可以将配置信息集中在一定数量的 Java 对象中，同时通过 Java 编程方式，比基于 Annotation 方式具有更高的灵活性。并且该配置方式给开发人员提供了一种非常好的范例来增加用户自定义的解析工具类。其主要缺点在于与 Java 代码结合紧密，配置信息的改变需要重新编译 Java 代码，另外这是一种新引入的解析方式，需要一定的学习成本。
 
 <br/>
 
@@ -82,10 +82,10 @@ public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegi
 ##### `postProcessBeanFactory()`方法会在`postProcessBeanDefinitionRegistry()`之后执行， 通过beanFactory拿到 BeanDefinition 后加入属性，这一步可以跳过。
 
 ### 实际项目需求
-##### 　　目前项目分为线上环境和dev环境，项目本身只支持http服务，因为线上环境有nginx做反向代理，所以用http和https均能正常访问线上服务。但是本地环境相对简单，不能支持https服务。先在需要根据环境的不同。动态的扩张spring boot的多连接器设置。当环境为dev时，即加载多连接器，分别用两个端口提供http和https服务。当环境不为dev时，只加载默认http即可。
-##### 　　根据这些需求，通过xml或者annotation去定义bean都不太合适。只能是通过java code去判断环境并动态加载。
+##### 目前项目分为线上环境和dev环境，项目本身只支持http服务，因为线上环境有nginx做反向代理，所以用http和https均能正常访问线上服务。但是本地环境相对简单，不能支持https服务。先在需要根据环境的不同。动态的扩张spring boot的多连接器设置。当环境为dev时，即加载多连接器，分别用两个端口提供http和https服务。当环境不为dev时，只加载默认http即可。
+##### 根据这些需求，通过xml或者annotation去定义bean都不太合适。只能是通过java code去判断环境并动态加载。
 
-##### 　　省去spring boot支持https以及多连接器的配置，相关的代码网络上很多。直接说遇到的主要问题吧。上面的demo通过`mutablePropertyValues.addPropertyValue("key", "root");`的方式为目标class定义属性，但是要求属性key必须有相应的set方法。
+##### 省去spring boot支持https以及多连接器的配置，相关的代码网络上很多。直接说遇到的主要问题吧。上面的demo通过`mutablePropertyValues.addPropertyValue("key", "root");`的方式为目标class定义属性，但是要求属性key必须有相应的set方法。
 
 ```java
 @Configuration
@@ -130,7 +130,7 @@ public class HttpsBeanDefinitionRegistryPostProcessor implements BeanDefinitionR
 }
 ```
 
-##### 　　在拿到`MutablePropertyValues`之后，想要给`TomcatEmbeddedServletContainerFactory`对象设置`additionalTomcatConnectors`属性，Connector中包含了https关键信息的设置。之后报错如下：
+##### 在拿到`MutablePropertyValues`之后，想要给`TomcatEmbeddedServletContainerFactory`对象设置`additionalTomcatConnectors`属性，Connector中包含了https关键信息的设置。之后报错如下：
 ```
 org.springframework.context.ApplicationContextException: Unable to start embedded container; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatEmbeddedServletContainerFactory': Error setting property values; nested exception is org.springframework.beans.NotWritablePropertyException: Invalid property 'additionalTomcatConnectors' of bean class [org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory]: Bean property 'additionalTomcatConnectors' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?
 	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.onRefresh(EmbeddedWebApplicationContext.java:133) ~[spring-boot-1.3.6.RELEASE.jar:1.3.6.RELEASE]
@@ -165,7 +165,7 @@ Caused by: org.springframework.beans.NotWritablePropertyException: Invalid prope
 	... 18 common frames omitted
 ```
 
-##### 　　**关键错误信息**：`Bean property 'additionalTomcatConnectors' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?`，没有权限写入以及没有找到相应的个体方法。
+##### **关键错误信息**：`Bean property 'additionalTomcatConnectors' is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?`，没有权限写入以及没有找到相应的个体方法。
 
 ##### 查看`TomcatEmbeddedServletContainerFactory`源码后发现其相应的设置方法如下：
 ```java
@@ -175,7 +175,7 @@ public void addAdditionalTomcatConnectors(Connector... connectors) {
 }
 ```
 
-##### 　　顿时觉得坑爹的add啊，之后在Bean Definition的私有属性设置，以及通过方法设置属性值的方向去尝试解决问题，没有任何效果。几乎快要绝望的时候，突然灵机一动，为什么我不能自己定义一个不需要后置设置属性的`TomcatEmbeddedServletContainerFactory`呢，于是有了下面的代码：
+##### 顿时觉得坑爹的add啊，之后在Bean Definition的私有属性设置，以及通过方法设置属性值的方向去尝试解决问题，没有任何效果。几乎快要绝望的时候，突然灵机一动，为什么我不能自己定义一个不需要后置设置属性的`TomcatEmbeddedServletContainerFactory`呢，于是有了下面的代码：
 
 ```java
 @Configuration
@@ -203,7 +203,7 @@ public class HttpsBeanDefinitionRegistryPostProcessor implements BeanDefinitionR
 }
 ```
 
-##### 　　注意上面的注入对象是`HttpsTomcatEmbeddedServletContainerFactory`，不是之前的`TomcatEmbeddedServletContainerFactory`，贴上`HttpsTomcatEmbeddedServletContainerFactory`代码：
+##### 注意上面的注入对象是`HttpsTomcatEmbeddedServletContainerFactory`，不是之前的`TomcatEmbeddedServletContainerFactory`，贴上`HttpsTomcatEmbeddedServletContainerFactory`代码：
 
 ```java
 import org.apache.catalina.connector.Connector;

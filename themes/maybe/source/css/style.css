@@ -320,6 +320,11 @@ a {
   margin-left: 42px;
 }
 
+#wrap #content-specific td{
+    width: 21px;
+    text-align: center;
+}
+
 #wrap #contents #content{
   width: 100%;
 }
@@ -386,6 +391,7 @@ a {
     font-size: 14px;
     padding: 8px 0 8px 0;
     line-height: 2em;
+    text-indent:26px;
 }
 
 .post h6 {
@@ -488,7 +494,7 @@ code {
     /*margin: 0px 3px;
     padding: 3px 6px;*/
     padding: 0em 0.5em;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     border: 1px solid #CCCCCC;
     background-color: #E2E2E2;
     border-radius: 3px;
