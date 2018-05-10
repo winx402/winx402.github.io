@@ -85,3 +85,81 @@ private long[] words;
 2. [Java BitSet](https://blog.csdn.net/top_code/article/details/40583279)
 
 ## BloomFilter
+##### 了解了BitMap的实现和原理之后，我们会发现如下的缺点：
+1. 通过单调hash计算后的整型值最好是相对连续的
+2. 对于很多数据（如url），很难找到某种hash算法能够平滑的映射到BitMap上。换句话来说就是hash碰撞的概率很高。
+
+##### 因此我们引入另一个著名的工业实现——布隆过滤器（Bloom Filter）。如果说Bitmap对于每一个可能的整型值，通过直接寻址的方式进行映射，相当于使用了一个哈希函数，那布隆过滤器就是引入了k(k>1)个相互独立的哈希函数，保证在给定的空间、误判率下，完成元素判重的过程。下图中是k=3时的布隆过滤器。
+![k=3的bloomfilter](/img/arithmetic/bloomfilter.png)
+
+##### 当一个元素被加入集合中时,通过k各散列函数将这个元素映射成一个位数组中的k个点,并将这k个点全部置为1.
+##### 有一定的误判率--在判断一个元素是否属于某个集合时,有可能会把不属于这个集合的元素误判为属于这个集合.因此,它不适合那些"零误判"的应用场合.在能容忍低误判的应用场景下,布隆过滤器通过极少的误判换区了存储空间的极大节省。
+#### 优点：
+1. 相比于其它的数据结构，布隆过滤器在空间和时间方面都有巨大的优势。布隆过滤器存储空间和插入/查询时间都是常数（O(k)）。另外, 散列函数相互之间没有关系，方便由硬件并行实现。布隆过滤器不需要存储元素本身，在某些对保密要求非常严格的场合有优势。
+2. k和m相同，使用同一组散列函数的两个布隆过滤器的交并差运算可以使用位操作进行。
+
+#### 缺点：
+1. 误算率。随着存入的元素数量增加，误算率随之增加。但是如果元素数量太少，则使用散列表足矣。
+2. 一般情况下不能从布隆过滤器中删除元素. 我们很容易想到把位数组变成整数数组，每插入一个元素相应的计数器加1, 这样删除元素时将计数器减掉就可以了。然而要保证安全地删除元素并非如此简单。首先我们必须保证删除的元素的确在布隆过滤器里面. 这一点单凭这个过滤器是无法保证的。另外计数器回绕也会造成问题。
+
+### guava中的BloomFilter实现
+```java
+public static <T> BloomFilter<T> create(Funnel<? super T> funnel, int expectedInsertions, double fpp) {
+    return create(funnel, expectedInsertions, fpp, DEFAULT_STRATEGY);
+}
+```
+* expectedInsertions：预估数据量
+* fpp：误判率
+
+##### 正确估计预期插入数量是很关键的一个参数。当插入的数量接近或高于预期值的时候，布隆过滤器将会填满，这样的话，它会产生很多无用的误报点。
+
+#### 测试：
+```java
+public class BloomFilterTest {
+    //目标数据量
+    private static int count = 10000000;
+    //BloomFilter
+    private static BloomFilter bloomFilter = BloomFilter.create(Funnels.integerFunnel(), count, 0.01);
+    //BloomFilter判断出来的重复数据量
+    private static int bloomFilterRepeatCount = 0;
+    //Set集合
+    private static Set<Integer> set = Sets.newHashSetWithExpectedSize(count);
+    //Set集合判断出来的重复量
+    private static int repeatCount = 0;
+
+    public static void main(String[] args) {
+        Random random = new Random();
+        for (int i = 0; i < count; i++) {
+            int i1 = random.nextInt(count);
+            bloomFilter(i1);
+            setFilter(i1);
+            if (i % 10000 == 0){
+                System.out.println(i / 10000 + "万");
+            }
+        }
+        System.out.println("bloom filter : " + bloomFilterRepeatCount);
+        System.out.println("set filter : " + repeatCount);
+    }
+
+    private static void bloomFilter(int i) {
+        if (bloomFilter.mightContain(i)) {
+            bloomFilterRepeatCount++;
+        } else {
+            bloomFilter.put(i);
+        }
+    }
+
+    private static void setFilter(int i) {
+        if (!set.add(i)) repeatCount++;
+    }
+}
+```
+
+##### 设置1000w的数据集，BloomFilter的fpp设置为0.01，输出结果：
+```
+bloom filter : 3679750
+set filter : 3678908
+```
+
+##### 可以看到效果还是挺好的，可能和int数据类型有关，如果换成url类型。误判结果应该会更高一些。
+#### 代码地址：[BloomFilterTest](https://github.com/winx402/Java/blob/master/src/main/java/com/winx/arithmetic/BloomFilterTest.java)
