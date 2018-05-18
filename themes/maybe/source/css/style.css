@@ -673,3 +673,7 @@ input#author, input#mail, input#url {
 .img-view span img{
     cursor: zoom-out;
 }
+
+.hljs div{
+    text-align: center;
+}
