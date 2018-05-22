@@ -2,7 +2,7 @@
 layout: post
 title: Java并发之ReentrantLock
 date: 2018/04/10
-tags: [tech, index]
+tags: [tech, index, java]
 tag: [[java, java]]
 original: true
 ---

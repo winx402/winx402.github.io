@@ -2,7 +2,7 @@
 layout: post
 title: Java并发之AQS
 date: 2018/04/09
-tags: [tech, index]
+tags: [tech, index, java]
 tag: [[java, java]]
 ---
 

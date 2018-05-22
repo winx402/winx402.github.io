@@ -2,7 +2,7 @@
 layout: post
 title: java阻塞队列详解
 date: 2018/03/27
-tags: [tech, index]
+tags: [tech, index, java]
 tag: [[java, java]]
 ---
 

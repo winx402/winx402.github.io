@@ -2,7 +2,7 @@
 layout: post
 title: java动态代理实现
 date: 2018/01/08
-tags: [tech, index]
+tags: [tech, index, java]
 original: true
 tag: [[java, java]]
 ---
