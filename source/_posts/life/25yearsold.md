@@ -2,7 +2,7 @@
 layout: post
 title: 25岁，写给今后的自己
 date: 2018/12/09
-tags: [life, index]
+tags: [life]
 original: true
 ---
 
