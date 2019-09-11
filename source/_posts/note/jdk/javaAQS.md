@@ -6,7 +6,7 @@ tags: [tech, index, java]
 tag: [[java, java]]
 ---
 
-##### Java的并发工具，我们常用的有ReentrantLock/Semaphore/CountDownLatch等工具，而这些工具类又是如何实现的呢？这就不得不提到AbstractQueuedSynchronizer类，也就是AQS！类如其名，抽象的队列式的同步器，AQS定义了一套多线程访问共享资源的同步器框架。
+##### Java的并发工具，我们常用的有ReentrantLock/Semaphore/CountDownLatch等工具，而这些工具类又是如何实现的呢？这就不得不提到AbstractQueuedSynchronizer类，也就是AQS！类如其名，抽象的队列式的同步器，AQS定义了一套多线程访问共享资源的同步器框架!
 <!-- more -->
 
 ## 框架
