@@ -3,7 +3,7 @@ layout: post
 title: sso接入流程和遇到的一些问题
 date: 2018/03/26
 original: true
-tags: [tech, index]
+tags: [tech, index, java]
 tag: [[java, java]]
 ---
 

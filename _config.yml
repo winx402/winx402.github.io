@@ -28,6 +28,7 @@ tags:
   network: 计算机网络
   redis: redis
   spring: spring
+  java: java
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

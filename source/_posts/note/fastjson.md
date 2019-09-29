@@ -2,7 +2,7 @@
 layout: post
 title: fastJson为什么这么快
 date: 2018/03/26
-tags: [tech, index]
+tags: [tech, index, java]
 tag: [[java, java]]
 ---
 
