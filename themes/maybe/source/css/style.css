@@ -359,7 +359,7 @@ a {
 
 .post h1 {
     padding: 16px 0 16px 0;
-    color: #5D245F;
+    color: #42a1f8;
     font-weight: 700;
     font-size: 30px;
 }
@@ -581,6 +581,11 @@ input#author, input#mail, input#url {
 
 }
 
+strong{
+    color: #000000;;
+    font-weight: 900;
+}
+
 #footer-page a{
     cursor: pointer;
 }
@@ -596,7 +601,7 @@ input#author, input#mail, input#url {
 
 #footer-page a:hover{
     background-color: #2d7788;
-    color: #eeeeee;;
+    color: #eeeeee;
 }
 
 #books{
