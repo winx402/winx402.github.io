@@ -5,8 +5,6 @@ date: 2017/08/31
 tags: [tech, index, spring, java]
 original: true
 tag: [[spring, spring],[java, java]]
-top: 1
-topTag: [index]
 ---
 
 ##### 通常情况下，我们通过XML或者Annotation两种方式配置Bean Definition。从Spring 3.0开始，增加了一种新的途径来配置Bean Definition，这就是通过Java Code配置Bean Definition。
