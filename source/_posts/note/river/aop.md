@@ -12,7 +12,7 @@ tag: [[river, river]]
 <!--more-->
 
 ### 实例代码
-#### 首先需要实现一个继承自`AopPoint`的类。
+#### 首先需要实现一个继承自`AopPoint`的类。 
 ```java
 public class AopTest extends AopPoint {
 
